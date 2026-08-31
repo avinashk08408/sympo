@@ -31,7 +31,7 @@ function Hero() {
         <p className="eyebrow">THE REALM AWAITS</p>
 
         <h1>
-          SYMPO
+          ZYVERSE
           <span>2026</span>
         </h1>
 
