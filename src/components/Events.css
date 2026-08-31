@@ -1,89 +1,30 @@
-/* =====================================================
-   EVENTS SECTION
-===================================================== */
-
 .events-section {
-  position: relative;
-
   width: 100%;
+  min-height: 100vh;
 
-  padding: 130px 7% 150px;
+  padding: 120px 30px;
 
-  background:
-    radial-gradient(
-      circle at 50% 20%,
-      rgba(126, 79, 25, 0.08),
-      transparent 35%
-    ),
-    #070605;
+  background: #070605;
+
+  color: #d8c28d;
 
   overflow: hidden;
 }
 
 
-/* =====================================================
-   BACKGROUND GLOW
-===================================================== */
-
-.events-section::before {
-  content: "";
-
-  position: absolute;
-
-  width: 450px;
-  height: 450px;
-
-  border-radius: 50%;
-
-  background: rgba(116, 37, 20, 0.09);
-
-  filter: blur(120px);
-
-  left: -250px;
-  top: 30%;
-
-  pointer-events: none;
-}
-
-.events-section::after {
-  content: "";
-
-  position: absolute;
-
-  width: 400px;
-  height: 400px;
-
-  border-radius: 50%;
-
-  background: rgba(174, 125, 48, 0.06);
-
-  filter: blur(120px);
-
-  right: -220px;
-  bottom: 10%;
-
-  pointer-events: none;
-}
-
-
-/* =====================================================
+/* ==============================
    HEADING
-===================================================== */
+============================== */
 
 .events-heading {
-  position: relative;
-
-  z-index: 2;
-
   text-align: center;
-
-  margin-bottom: 75px;
+  margin-bottom: 70px;
 }
 
-.events-number {
+.events-heading > span {
   display: block;
 
-  margin-bottom: 10px;
+  margin-bottom: 12px;
 
   font-family: "Cinzel", serif;
 
@@ -91,11 +32,11 @@
 
   letter-spacing: 4px;
 
-  color: #a77b36;
+  color: #a17a39;
 }
 
-.events-label {
-  margin: 0 0 13px;
+.events-heading p {
+  margin: 0 0 12px;
 
   font-family: "Cinzel", serif;
 
@@ -103,7 +44,7 @@
 
   letter-spacing: 4px;
 
-  color: #807563;
+  color: #756d5d;
 }
 
 .events-heading h2 {
@@ -111,177 +52,109 @@
 
   font-family: "Cinzel", serif;
 
-  font-size: clamp(
-    32px,
-    5vw,
-    58px
-  );
+  font-size: clamp(30px, 5vw, 55px);
 
   font-weight: 500;
 
   letter-spacing: 3px;
 
-  color: #d9c58e;
-
-  text-shadow:
-    0 0 20px rgba(
-      206,
-      170,
-      87,
-      0.12
-    );
+  color: #d8c28d;
 }
 
 
-/* =====================================================
-   HEADING DECORATION
-===================================================== */
+/* ==============================
+   HEADING LINE
+============================== */
 
-.events-heading-line {
+.heading-line {
   display: flex;
 
   align-items: center;
 
   justify-content: center;
 
-  gap: 9px;
+  gap: 10px;
 
-  margin: 22px auto 0;
+  margin-top: 22px;
 }
 
-.events-heading-line span {
-  width: 65px;
+.heading-line i {
+  width: 70px;
 
   height: 1px;
 
-  background: linear-gradient(
-    90deg,
-    transparent,
-    #85652f
-  );
+  background: #80612f;
 }
 
-.events-heading-line span:last-child {
-  background: linear-gradient(
-    90deg,
-    #85652f,
-    transparent
-  );
-}
-
-.events-heading-line b {
+.heading-line b {
   font-size: 6px;
 
-  color: #c39a4e;
+  color: #c19a50;
 }
 
 
-/* =====================================================
-   EVENT GRID
-   3 EVENTS
-   +
-   2 EVENTS
-===================================================== */
+/* ==============================
+   ROW
+============================== */
 
-.events-grid {
-  position: relative;
+.events-row {
+  width: 100%;
 
-  z-index: 2;
+  display: flex;
 
-  width: min(
-    1100px,
-    100%
-  );
+  justify-content: center;
 
-  margin: 0 auto;
-
-  display: grid;
-
-  grid-template-columns:
-    repeat(6, 1fr);
+  align-items: stretch;
 
   gap: 25px;
+
+  margin-bottom: 25px;
 }
 
 
-/* =====================================================
-   FIRST ROW
-   E1 E2 E3
-===================================================== */
+/* SECOND ROW */
 
-.event-card:nth-child(1),
-.event-card:nth-child(2),
-.event-card:nth-child(3) {
-  grid-column: span 2;
+.events-row.second-row {
+  margin-top: 0;
 }
 
 
-/* =====================================================
-   SECOND ROW
-   E4     E5
-
-   Centered
-===================================================== */
-
-.event-card:nth-child(4) {
-  grid-column: 2 / span 2;
-}
-
-.event-card:nth-child(5) {
-  grid-column: 4 / span 2;
-}
-
-
-/* =====================================================
+/* ==============================
    EVENT CARD
-===================================================== */
+============================== */
 
 .event-card {
+  width: 300px;
+
+  min-height: 350px;
+
+  padding: 25px;
+
   position: relative;
-
-  min-height: 410px;
-
-  padding: 27px 25px;
 
   display: flex;
 
   flex-direction: column;
 
-  overflow: hidden;
+  text-align: center;
 
-  border: 1px solid
-    rgba(
-      185,
-      139,
-      55,
-      0.25
-    );
+  border: 1px solid rgba(190, 147, 66, 0.28);
 
   background:
     linear-gradient(
       145deg,
-      rgba(
-        142,
-        103,
-        39,
-        0.08
-      ),
-      rgba(
-        35,
-        13,
-        10,
-        0.18
-      )
+      rgba(151, 111, 40, 0.08),
+      rgba(20, 10, 7, 0.35)
     );
 
   transition:
-    transform 0.45s ease,
-    border-color 0.45s ease,
-    box-shadow 0.45s ease;
+    transform 0.35s ease,
+    border-color 0.35s ease,
+    box-shadow 0.35s ease;
 }
 
 
-/* CARD INNER BORDER */
+/* INNER BORDER */
 
 .event-card::before {
   content: "";
@@ -290,305 +163,90 @@
 
   inset: 7px;
 
-  border: 1px solid
-    rgba(
-      193,
-      150,
-      70,
-      0.07
-    );
+  border: 1px solid rgba(190, 147, 66, 0.08);
 
   pointer-events: none;
-
-  transition:
-    border-color 0.4s ease;
 }
 
 
-/* TOP GOLD LINE */
-
-.event-card::after {
-  content: "";
-
-  position: absolute;
-
-  top: 0;
-  left: 0;
-
-  width: 100%;
-  height: 2px;
-
-  background: linear-gradient(
-    90deg,
-    transparent,
-    #a57a36,
-    transparent
-  );
-
-  opacity: 0;
-
-  transition:
-    opacity 0.4s ease;
-}
-
-
-/* =====================================================
-   CARD HOVER
-===================================================== */
+/* HOVER */
 
 .event-card:hover {
-  transform:
-    translateY(-10px);
+  transform: translateY(-8px);
 
-  border-color:
-    rgba(
-      207,
-      166,
-      83,
-      0.7
-    );
+  border-color: rgba(211, 171, 83, 0.65);
 
   box-shadow:
-    0 20px 55px
-    rgba(
-      0,
-      0,
-      0,
-      0.55
-    ),
-    0 0 35px
-    rgba(
-      179,
-      132,
-      47,
-      0.07
-    );
-}
-
-.event-card:hover::before {
-  border-color:
-    rgba(
-      193,
-      150,
-      70,
-      0.16
-    );
-}
-
-.event-card:hover::after {
-  opacity: 1;
+    0 20px 50px rgba(0, 0, 0, 0.5),
+    0 0 30px rgba(178, 132, 48, 0.08);
 }
 
 
-/* =====================================================
-   CARD TOP
-===================================================== */
+/* ==============================
+   EVENT NUMBER
+============================== */
 
-.event-card-top {
-  display: flex;
-
-  align-items: center;
-
-  justify-content: space-between;
-}
-
-.event-card .event-number {
+.event-number {
   font-family: "Cinzel", serif;
 
-  font-size: 7px;
+  font-size: 8px;
 
-  letter-spacing: 2px;
+  letter-spacing: 3px;
 
-  color: #aa8244;
-}
-
-.event-category {
-  font-size: 6px;
-
-  letter-spacing: 2px;
-
-  color: #6e675a;
+  color: #9b773d;
 }
 
 
-/* =====================================================
-   EVENT SYMBOL
-===================================================== */
-
-.event-symbol {
-  width: 65px;
-  height: 65px;
-
-  margin: 42px auto 27px;
-
-  display: flex;
-
-  align-items: center;
-  justify-content: center;
-
-  border: 1px solid
-    rgba(
-      193,
-      150,
-      70,
-      0.4
-    );
-
-  border-radius: 50%;
-
-  color: #c9a45b;
-
-  font-size: 24px;
-
-  background:
-    radial-gradient(
-      circle,
-      rgba(
-        182,
-        136,
-        46,
-        0.1
-      ),
-      transparent 70%
-    );
-
-  box-shadow:
-    0 0 25px
-    rgba(
-      188,
-      145,
-      59,
-      0.07
-    );
-
-  transition:
-    transform 0.5s ease,
-    box-shadow 0.5s ease;
-}
-
-.event-card:hover .event-symbol {
-  transform:
-    rotate(-8deg)
-    scale(1.08);
-
-  box-shadow:
-    0 0 35px
-    rgba(
-      194,
-      150,
-      61,
-      0.15
-    );
-}
-
-
-/* =====================================================
-   EVENT NAME
-===================================================== */
+/* ==============================
+   EVENT TITLE
+============================== */
 
 .event-card h3 {
-  margin: 0;
+  margin-top: 70px;
 
-  text-align: center;
+  margin-bottom: 15px;
 
   font-family: "Cinzel", serif;
 
-  font-size: clamp(
-    17px,
-    2vw,
-    23px
-  );
-
-  line-height: 1.35;
+  font-size: 23px;
 
   font-weight: 500;
 
   letter-spacing: 1px;
 
-  color: #d9c58d;
+  color: #d8c28d;
 }
 
 
-/* =====================================================
-   TAGLINE
-===================================================== */
+/* ==============================
+   DESCRIPTION
+============================== */
 
-.event-tagline {
-  margin: 15px auto 0;
+.event-card p {
+  margin: 0 auto;
 
   max-width: 220px;
 
-  text-align: center;
-
-  font-family: "Inter", sans-serif;
-
-  font-size: 11px;
+  font-size: 12px;
 
   line-height: 1.7;
 
-  font-weight: 300;
-
-  color: #837b6c;
+  color: #807767;
 }
 
 
-/* =====================================================
-   DIVIDER
-===================================================== */
-
-.event-divider {
-  display: flex;
-
-  align-items: center;
-
-  justify-content: center;
-
-  gap: 7px;
-
-  margin: 25px 0;
-}
-
-.event-divider span {
-  width: 30px;
-
-  height: 1px;
-
-  background:
-    linear-gradient(
-      90deg,
-      transparent,
-      #76582b
-    );
-}
-
-.event-divider span:last-child {
-  background:
-    linear-gradient(
-      90deg,
-      #76582b,
-      transparent
-    );
-}
-
-.event-divider b {
-  font-size: 5px;
-
-  color: #ae843b;
-}
-
-
-/* =====================================================
-   MORE INFORMATION BUTTON
-===================================================== */
+/* ==============================
+   BUTTON
+============================== */
 
 .event-info-button {
-  margin-top: auto;
-
   width: 100%;
 
   min-height: 42px;
 
-  padding: 11px 13px;
+  margin-top: auto;
+
+  padding: 11px 14px;
 
   display: flex;
 
@@ -596,169 +254,105 @@
 
   justify-content: space-between;
 
-  border: 1px solid
-    rgba(
-      186,
-      142,
-      56,
-      0.28
-    );
+  box-sizing: border-box;
 
-  background:
-    rgba(
-      159,
-      117,
-      38,
-      0.035
-    );
+  border: 1px solid rgba(190, 147, 66, 0.3);
 
-  color: #c8a764;
+  background: rgba(154, 111, 37, 0.05);
+
+  color: #c9a762;
 
   font-family: "Cinzel", serif;
 
   font-size: 7px;
 
-  letter-spacing: 1.4px;
+  letter-spacing: 1.5px;
 
-  transition:
-    background 0.35s ease,
-    border-color 0.35s ease,
-    padding 0.35s ease;
-}
+  text-decoration: none;
 
-.event-info-button b {
-  font-size: 14px;
-
-  font-weight: 400;
-
-  transition:
-    transform 0.35s ease;
+  transition: 0.3s ease;
 }
 
 .event-info-button:hover {
-  border-color:
-    rgba(
-      208,
-      168,
-      84,
-      0.7
-    );
+  border-color: #c9a762;
 
-  background:
-    rgba(
-      174,
-      132,
-      48,
-      0.11
-    );
-
-  padding-left: 17px;
+  background: rgba(154, 111, 37, 0.12);
 }
 
-.event-info-button:hover b {
-  transform:
-    translateX(4px);
+.event-info-button span {
+  font-size: 14px;
+
+  transition: transform 0.3s ease;
+}
+
+.event-info-button:hover span {
+  transform: translateX(5px);
 }
 
 
-/* =====================================================
+/* ==============================
    TABLET
-===================================================== */
+============================== */
 
-@media (max-width: 900px) {
+@media (max-width: 1000px) {
 
-  .events-section {
-    padding:
-      105px 5% 120px;
+  .event-card {
+    width: 270px;
   }
 
-  .events-grid {
+  .events-row {
     gap: 18px;
   }
-
-  .event-card {
-    min-height: 390px;
-
-    padding:
-      24px 19px;
-  }
-
 }
 
 
-/* =====================================================
+/* ==============================
    MOBILE
-===================================================== */
+============================== */
 
-@media (max-width: 650px) {
-
-  .events-section {
-    padding:
-      90px 18px 110px;
-  }
-
-  .events-heading {
-    margin-bottom: 50px;
-  }
-
-  .events-heading h2 {
-    font-size: 29px;
-
-    letter-spacing: 2px;
-  }
-
-  .events-grid {
-    display: grid;
-
-    grid-template-columns: 1fr;
-
-    gap: 17px;
-  }
-
-
-  /* RESET DESKTOP POSITIONING */
-
-  .event-card:nth-child(1),
-  .event-card:nth-child(2),
-  .event-card:nth-child(3),
-  .event-card:nth-child(4),
-  .event-card:nth-child(5) {
-    grid-column: 1;
-  }
-
-
-  .event-card {
-    min-height: 350px;
-
-    padding: 25px 22px;
-  }
-
-
-  .event-symbol {
-    margin-top: 35px;
-    margin-bottom: 24px;
-  }
-
-}
-
-
-/* =====================================================
-   VERY SMALL PHONES
-===================================================== */
-
-@media (max-width: 380px) {
+@media (max-width: 700px) {
 
   .events-section {
-    padding-left: 14px;
-    padding-right: 14px;
+    padding: 90px 18px;
+  }
+
+  .events-row {
+    flex-direction: column;
+
+    align-items: center;
+
+    gap: 18px;
+
+    margin-bottom: 18px;
+  }
+
+  .events-row.second-row {
+    margin-top: 0;
   }
 
   .event-card {
+    width: 100%;
+
+    max-width: 350px;
+
     min-height: 330px;
   }
 
-  .event-card h3 {
-    font-size: 18px;
+}
+
+
+/* ==============================
+   SMALL MOBILE
+============================== */
+
+@media (max-width: 380px) {
+
+  .event-card {
+    max-width: 100%;
+  }
+
+  .events-heading h2 {
+    font-size: 27px;
   }
 
 }
