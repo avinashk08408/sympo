@@ -4,6 +4,7 @@ import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import About from "./components/About";
 import Events from "./components/Events";
+import Leadership from "./components/Leadership";
 import Footer from "./components/Footer";
 import EventPage from "./pages/EventPage";
 
@@ -18,6 +19,8 @@ function Home() {
         <Hero />
         <About />
         <Events />
+        <Events />
+        <Leadership />
       </main>
 
       <Footer />
