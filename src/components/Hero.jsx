@@ -1,112 +1,168 @@
-import { motion } from "framer-motion";
+import { useEffect, useState } from "react";
+import "./Hero.css";
 
-function Hero() {
-  const scrollToEvents = () => {
+const targetDate = new Date("2026-09-16T09:00:00+05:30");
+
+function getTimeLeft() {
+  const difference = targetDate.getTime() - Date.now();
+
+  if (difference <= 0) {
+    return {
+      days: 0,
+      hours: 0,
+      minutes: 0,
+      seconds: 0,
+    };
+  }
+
+  return {
+    days: Math.floor(difference / (1000 * 60 * 60 * 24)),
+    hours: Math.floor(
+      (difference / (1000 * 60 * 60)) % 24
+    ),
+    minutes: Math.floor(
+      (difference / (1000 * 60)) % 60
+    ),
+    seconds: Math.floor(
+      (difference / 1000) % 60
+    ),
+  };
+}
+
+function pad(number) {
+  return String(number).padStart(2, "0");
+}
+
+export default function Hero() {
+  const [timeLeft, setTimeLeft] = useState(getTimeLeft());
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setTimeLeft(getTimeLeft());
+    }, 1000);
+
+    return () => clearInterval(timer);
+  }, []);
+
+  const goToEvents = () => {
     document
       .getElementById("events")
-      ?.scrollIntoView({ behavior: "smooth" });
+      ?.scrollIntoView({
+        behavior: "smooth",
+      });
   };
 
   return (
     <section className="hero">
 
-      <div className="hero-smoke smoke-one" />
-      <div className="hero-smoke smoke-two" />
+      {/* BACKGROUND */}
+      <div className="hero-overlay" />
+      <div className="hero-glow hero-glow-one" />
+      <div className="hero-glow hero-glow-two" />
 
-      <div className="hero-content">
+      {/* COLLEGE */}
+      <div className="hero-college">
 
-        {/* COLLEGE */}
-        <motion.div
-          className="college"
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1 }}
-        >
-          <div className="college-logo">
-            {/* Add your logo inside /public/images/college-logo.png */}
-            <img
-              src="/sympo/images/college-logo.png"
-              alt="SRM Valliammai Engineering College"
-            />
-          </div>
-
-          <div className="college-name">
-            <span>SRM VALLIAMMAI</span>
-            <strong>ENGINEERING COLLEGE</strong>
-          </div>
-        </motion.div>
-
-        {/* EVENT */}
-        <motion.p
-          className="event-label"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.5 }}
-        >
-          PRESENTS
-        </motion.p>
-
-        <motion.h1
-          className="zyverse-title"
-          initial={{ opacity: 0, scale: 0.9 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 1.2 }}
-        >
-          <span className="special-z">Z</span>YVERSE
-        </motion.h1>
-
-        <motion.div
-          className="hero-divider"
-          initial={{ width: 0 }}
-          animate={{ width: 180 }}
-          transition={{ delay: 1, duration: 0.8 }}
+        <img
+          src="/sympo/images/srm-logo.png"
+          alt="SRM Valliammai Engineering College"
+          className="srm-logo"
         />
 
-        {/* TIME BOMB */}
-        <motion.p
-          className="time-bomb"
-          initial={{ opacity: 0, letterSpacing: "12px" }}
-          animate={{ opacity: 1, letterSpacing: "5px" }}
-          transition={{ delay: 1.1, duration: 0.8 }}
-        >
-          TIME BOMB
-        </motion.p>
-
-        {/* DATE */}
-        <motion.div
-          className="event-date"
-          initial={{ opacity: 0, y: 15 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 1.4 }}
-        >
-          <span>16</span>
-          <div>
-            <strong>SEPTEMBER</strong>
-            <small>2026</small>
-          </div>
-        </motion.div>
-
-        {/* BUTTON */}
-        <motion.button
-          className="gold-button"
-          onClick={scrollToEvents}
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 1.7 }}
-        >
-          EXPLORE EVENTS
-          <span> →</span>
-        </motion.button>
+        <div className="college-text">
+          <h3>SRM VALLIAMMAI</h3>
+          <p>ENGINEERING COLLEGE</p>
+        </div>
 
       </div>
 
-      <div className="scroll-indicator">
-        <span>SCROLL TO ENTER THE REALM</span>
-        <div />
+      {/* DEPARTMENT */}
+      <p className="hero-department">
+        DEPARTMENT OF CYBER SECURITY
+      </p>
+
+      {/* EVENT LOGO */}
+      <div className="zyverse">
+
+        <div className="zyverse-name">
+
+          <span className="zyverse-z">
+            Z
+          </span>
+
+          <span className="zyverse-yverse">
+            YVERSE
+          </span>
+
+        </div>
+
+        <div className="zyverse-year">
+          2K26
+        </div>
+
+      </div>
+
+      {/* DECORATIVE LINE */}
+      <div className="hero-line">
+        <span />
+        <b>◆</b>
+        <span />
+      </div>
+
+      {/* EVENT NAME */}
+      <div className="time-bomb">
+        <span>TIME BOMB</span>
+      </div>
+
+      {/* COUNTDOWN */}
+      <div className="countdown-title">
+        EVENT BEGINS IN
+      </div>
+
+      <div className="countdown">
+
+        <div className="count-item">
+          <strong>{pad(timeLeft.days)}</strong>
+          <span>DAYS</span>
+        </div>
+
+        <div className="count-item">
+          <strong>{pad(timeLeft.hours)}</strong>
+          <span>HRS</span>
+        </div>
+
+        <div className="count-item">
+          <strong>{pad(timeLeft.minutes)}</strong>
+          <span>MINS</span>
+        </div>
+
+        <div className="count-item">
+          <strong>{pad(timeLeft.seconds)}</strong>
+          <span>SECS</span>
+        </div>
+
+      </div>
+
+      {/* DATE */}
+      <div className="event-date">
+        16 SEPTEMBER 2026
+      </div>
+
+      {/* BUTTON */}
+      <button
+        className="explore-button"
+        onClick={goToEvents}
+      >
+        EXPLORE EVENTS
+        <span>↓</span>
+      </button>
+
+      {/* BOTTOM NAV */}
+      <div className="hero-scroll">
+        <span>SCROLL TO EXPLORE</span>
+        <i />
       </div>
 
     </section>
   );
 }
-
-export default Hero;
