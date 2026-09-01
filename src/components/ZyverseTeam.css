@@ -1,0 +1,263 @@
+.zyverse-team-section {
+  position: relative;
+
+  padding: 120px 7%;
+
+  background:
+    linear-gradient(
+      180deg,
+      #0d0c0b,
+      #100e0b
+    );
+
+  overflow: hidden;
+}
+
+
+/* HEADING */
+
+.team-heading {
+  text-align: center;
+  margin-bottom: 70px;
+}
+
+.team-heading > span {
+  display: block;
+
+  margin-bottom: 14px;
+
+  font-family: "Cinzel", serif;
+  font-size: 10px;
+  letter-spacing: 4px;
+
+  color: #92733a;
+}
+
+.team-heading h2 {
+  margin: 0;
+
+  font-family: "Cinzel", serif;
+  font-size: clamp(34px, 5vw, 58px);
+  font-weight: 500;
+  letter-spacing: 3px;
+
+  color: #ddd2bd;
+}
+
+.team-heading h2 b {
+  color: #c19a50;
+  font-weight: 600;
+}
+
+.team-ornament {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  gap: 14px;
+
+  margin-top: 24px;
+}
+
+.team-ornament i {
+  display: block;
+
+  width: 70px;
+  height: 1px;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      #9c7a3d
+    );
+}
+
+.team-ornament i:last-child {
+  background:
+    linear-gradient(
+      90deg,
+      #9c7a3d,
+      transparent
+    );
+}
+
+.team-ornament strong {
+  font-size: 9px;
+  color: #c19a50;
+}
+
+
+/* GRID */
+
+.team-grid {
+  width: min(1150px, 100%);
+  margin: auto;
+
+  display: grid;
+
+  grid-template-columns:
+    repeat(4, 1fr);
+
+  gap: 18px;
+}
+
+
+/* CARD */
+
+.team-card {
+  position: relative;
+
+  min-height: 190px;
+
+  padding: 22px;
+
+  border:
+    1px solid
+    rgba(193, 154, 80, 0.25);
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(193, 154, 80, 0.07),
+      rgba(255, 255, 255, 0.012)
+    );
+
+  transition:
+    transform 0.2s ease,
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.team-card:hover {
+  transform: translateY(-6px);
+
+  border-color:
+    rgba(193, 154, 80, 0.7);
+
+  box-shadow:
+    0 15px 35px rgba(0, 0, 0, 0.3),
+    0 0 25px rgba(193, 154, 80, 0.07);
+}
+
+
+/* TOP */
+
+.team-card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  margin-bottom: 28px;
+}
+
+.team-index {
+  font-family: "Cinzel", serif;
+
+  font-size: 9px;
+  letter-spacing: 2px;
+
+  color:
+    rgba(193, 154, 80, 0.45);
+}
+
+.team-mark {
+  font-size: 8px;
+  color: #a17d3d;
+}
+
+
+/* BODY */
+
+.team-card-body p {
+  margin: 0 0 15px;
+
+  font-family: "Cinzel", serif;
+
+  font-size: 9px;
+  letter-spacing: 2px;
+
+  color: #9c7a3d;
+}
+
+.team-members h3 {
+  margin: 5px 0;
+
+  font-family: "Cinzel", serif;
+
+  font-size: 16px;
+  line-height: 1.4;
+
+  font-weight: 500;
+
+  color: #e0d6c4;
+}
+
+
+/* BOTTOM LINE */
+
+.team-card-line {
+  position: absolute;
+
+  left: 22px;
+  right: 22px;
+  bottom: 16px;
+
+  height: 1px;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(193, 154, 80, 0.35),
+      transparent
+    );
+}
+
+
+/* TABLET */
+
+@media (max-width: 1000px) {
+
+  .team-grid {
+    grid-template-columns:
+      repeat(2, 1fr);
+  }
+
+}
+
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+
+  .zyverse-team-section {
+    padding: 90px 6%;
+  }
+
+  .team-heading {
+    margin-bottom: 55px;
+  }
+
+  .team-heading > span {
+    font-size: 9px;
+    letter-spacing: 3px;
+  }
+
+  .team-heading h2 {
+    font-size: 31px;
+  }
+
+  .team-grid {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+
+  .team-card {
+    min-height: 165px;
+  }
+
+  .team-members h3 {
+    font-size: 15px;
+  }
+
+}
