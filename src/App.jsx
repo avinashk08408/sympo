@@ -1,4 +1,5 @@
-import {Routes, Route } from "react-router-dom";
+import { HashRouter, Routes, Route } from "react-router-dom";
+
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import About from "./components/About";
@@ -7,6 +8,7 @@ import Footer from "./components/Footer";
 import EventPage from "./pages/EventPage";
 
 import "./App.css";
+
 
 function Home() {
   return (
@@ -24,16 +26,28 @@ function Home() {
   );
 }
 
+
 function App() {
   return (
-    <Routes>
-  <Route path="/" element={<Home />} />
-      <Route path="/events/:eventId" element={<EventPage />} />
-    </Routes>
-    
+    <HashRouter>
+      <Routes>
 
-    
-    );
+        {/* HOME PAGE */}
+        <Route
+          path="/"
+          element={<Home />}
+        />
+
+        {/* EVENT DETAIL PAGE */}
+        <Route
+          path="/events/:eventId"
+          element={<EventPage />}
+        />
+
+      </Routes>
+    </HashRouter>
+  );
 }
+
 
 export default App;
