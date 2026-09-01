@@ -88,7 +88,7 @@ export default function Events() {
         <div
           style={{
             fontFamily: "Cinzel, serif",
-            fontSize: "8px",
+            fontSize: "10px",
             letterSpacing: "3px",
             color: "#a47a38",
           }}
@@ -209,7 +209,7 @@ export default function Events() {
 
             fontFamily: "Cinzel, serif",
 
-            fontSize: "9px",
+            fontSize: "11px",
 
             letterSpacing: "1.5px",
 
