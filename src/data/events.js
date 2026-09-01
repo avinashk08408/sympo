@@ -56,7 +56,7 @@ export const events = [
   {
     id: "event-4",
     number: "IV",
-    name: "THE KING'S TRAIL",
+    name: "WINTER WAR",
     category: "DEBUGGING",
     tagline: "Find the flaw. Break the curse.",
      description:"The kingdom stands divided, and the throne awaits its rightful conqueror.Winter War is a multi-stage cybersecurity battle where participants journey through a series of challenges, puzzles, and security trials. Each victory unlocks the path to the next stage, testing their ability to think, investigate, exploit, and adapt. But the journey ends where the real battle begins. At the heart of the war lies an ultimate Boot2Root showdown — a final fortress waiting to be breached. Participants must uncover its weaknesses, exploit them, escalate their privileges, and seize the final objective. Conquer the trials. Breach the fortress. Claim the throne.",
