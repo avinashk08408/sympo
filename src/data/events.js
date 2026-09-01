@@ -5,7 +5,7 @@ export const events = [
     name: " SCROLLS OF THE REALM",
     category: "TECHNICAL",
     tagline: "Only the sharpest minds shall prevail.",
-    description: "A competitive cybersecurity challenge where participants solve a series of problems across different areas of information security. Players must investigate clues, identify vulnerabilities, analyze files, break cryptographic challenges, and exploit weaknesses to capture hidden flags. Success requires a combination of technical knowledge, logical thinking, problem-solving, and creativity. With challenges ranging from beginner-friendly puzzles to advanced security problems, participants can test their skills, learn new techniques, and compete for the highest score on the leaderboard.";
+    description: "A competitive cybersecurity challenge where participants solve a series of problems across different areas of information security. Players must investigate clues, identify vulnerabilities, analyze files, break cryptographic challenges, and exploit weaknesses to capture hidden flags. Success requires a combination of technical knowledge, logical thinking, problem-solving, and creativity. With challenges ranging from beginner-friendly puzzles to advanced security problems, participants can test their skills, learn new techniques, and compete for the highest score on the leaderboard.",
     teamSize: "1 - 2",
     duration: "30 Minutes",
     venue: "Computer Lab",
