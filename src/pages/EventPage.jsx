@@ -4,6 +4,10 @@ import { motion } from "framer-motion";
 
 import { events } from "../data/events";
 
+// ======================================================
+// CLOUDINARY VIDEO
+// ======================================================
+
 const EVENT_VIDEO =
   "https://res.cloudinary.com/egrvexxs/video/upload/v1788282471/InShot_20260831_191916680.mp4";
 
@@ -16,41 +20,36 @@ function EventPage() {
 
   const [showIntro, setShowIntro] = useState(true);
 
+  // Scroll to top whenever event changes
   useEffect(() => {
-    window.scrollTo({
-      top: 0,
-      behavior: "instant",
-    });
+    window.scrollTo(0, 0);
   }, [eventId]);
+
+  // ======================================================
+  // EVENT NOT FOUND
+  // ======================================================
 
   if (!event) {
     return (
       <main
         style={{
           minHeight: "100vh",
-
           display: "flex",
-
           alignItems: "center",
-
           justifyContent: "center",
-
           flexDirection: "column",
-
           gap: "25px",
-
           background: "#070605",
-
           color: "#d8c28d",
-
           textAlign: "center",
-
           padding: "30px",
+          boxSizing: "border-box",
         }}
       >
         <h1
           style={{
             fontFamily: "Cinzel, serif",
+            fontSize: "clamp(28px, 6vw, 50px)",
           }}
         >
           EVENT NOT FOUND
@@ -60,68 +59,63 @@ function EventPage() {
           to="/"
           style={{
             color: "#c19a50",
+            textDecoration: "none",
+            fontFamily: "Cinzel, serif",
+            letterSpacing: "2px",
           }}
         >
-          RETURN TO THE REALM
+          ← RETURN TO THE REALM
         </Link>
       </main>
     );
   }
 
+  // ======================================================
+  // MAIN PAGE
+  // ======================================================
+
   return (
     <main
       style={{
         minHeight: "100vh",
-
         background: "#070605",
-
         color: "#d8c28d",
       }}
     >
-      {/* ==========================================
+
+      {/* ==================================================
           VIDEO INTRO
-      ========================================== */}
+      ================================================== */}
 
       {showIntro && (
         <motion.div
-          initial={{
-            opacity: 1,
-          }}
-          exit={{
-            opacity: 0,
-          }}
+          initial={{ opacity: 1 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.4 }}
           style={{
             position: "fixed",
-
             inset: 0,
-
-            zIndex: 9999,
-
+            zIndex: 99999,
             background: "#000",
-
             display: "flex",
-
             alignItems: "center",
-
             justifyContent: "center",
-
             overflow: "hidden",
           }}
         >
+
           {/* VIDEO */}
+
           <video
             autoPlay
             muted
             playsInline
             preload="auto"
-            onEnded={() => {
-              setShowIntro(false);
-            }}
+            onEnded={() => setShowIntro(false)}
             style={{
               width: "100%",
-
               height: "100%",
-
               objectFit: "cover",
             }}
           >
@@ -131,42 +125,35 @@ function EventPage() {
             />
           </video>
 
-          {/* VIDEO DARK OVERLAY */}
+          {/* DARK OVERLAY */}
+
           <div
             style={{
               position: "absolute",
-
               inset: 0,
-
               background:
-                "linear-gradient(180deg, rgba(0,0,0,0.2), rgba(0,0,0,0.45))",
-
+                "linear-gradient(180deg, rgba(0,0,0,0.15), rgba(0,0,0,0.55))",
               pointerEvents: "none",
             }}
           />
 
           {/* EVENT TITLE */}
+
           <div
             style={{
               position: "absolute",
-
-              left: "30px",
-
-              bottom: "40px",
-
+              left: "7%",
+              bottom: "8%",
               zIndex: 2,
+              maxWidth: "85%",
             }}
           >
             <p
               style={{
-                margin: "0 0 8px",
-
+                margin: "0 0 10px",
                 fontFamily: "Cinzel, serif",
-
                 fontSize: "10px",
-
                 letterSpacing: "4px",
-
                 color: "#c19a50",
               }}
             >
@@ -176,18 +163,13 @@ function EventPage() {
             <h1
               style={{
                 margin: 0,
-
                 fontFamily: "Cinzel, serif",
-
-                fontSize:
-                  "clamp(28px, 6vw, 60px)",
-
+                fontSize: "clamp(30px, 7vw, 70px)",
                 fontWeight: 500,
-
+                lineHeight: 1.1,
                 color: "#ead7a7",
-
                 textShadow:
-                  "0 3px 20px rgba(0,0,0,0.9)",
+                  "0 3px 25px rgba(0,0,0,0.95)",
               }}
             >
               {event.name}
@@ -195,38 +177,35 @@ function EventPage() {
           </div>
 
           {/* SKIP BUTTON */}
+
           <button
-            onClick={() => {
-              setShowIntro(false);
-            }}
+            type="button"
+            onClick={() => setShowIntro(false)}
             style={{
               position: "absolute",
-
               top: "25px",
-
               right: "25px",
-
               zIndex: 3,
 
               padding: "12px 18px",
 
               background:
-                "rgba(7,6,5,0.72)",
+                "rgba(7,6,5,0.75)",
 
               border:
-                "1px solid rgba(193,154,80,0.65)",
+                "1px solid rgba(193,154,80,0.7)",
 
               color: "#ead7a7",
 
               fontFamily: "Cinzel, serif",
 
-              fontSize: "11px",
+              fontSize: "10px",
 
               letterSpacing: "2px",
 
               cursor: "pointer",
 
-              backdropFilter: "blur(6px)",
+              backdropFilter: "blur(8px)",
             }}
           >
             SKIP INTRO →
@@ -234,46 +213,42 @@ function EventPage() {
         </motion.div>
       )}
 
-      {/* ==========================================
+      {/* ==================================================
           EVENT CONTENT
-      ========================================== */}
+      ================================================== */}
 
       <div
         style={{
           width: "100%",
-
           maxWidth: "1100px",
-
           margin: "0 auto",
-
           padding: "40px 7% 100px",
-
           boxSizing: "border-box",
         }}
       >
+
         {/* BACK */}
+
         <Link
           to="/"
           style={{
             display: "inline-block",
-
             marginBottom: "70px",
-
             color: "#a47a38",
-
             textDecoration: "none",
-
             fontFamily: "Cinzel, serif",
-
             fontSize: "11px",
-
             letterSpacing: "2px",
           }}
         >
           ← RETURN TO THE REALM
         </Link>
 
-        {/* HERO */}
+
+        {/* ==================================================
+            EVENT HERO
+        ================================================== */}
+
         <motion.section
           initial={{
             opacity: 0,
@@ -284,36 +259,33 @@ function EventPage() {
             y: 0,
           }}
           transition={{
-            duration: 0.35,
+            duration: 0.5,
           }}
           style={{
             textAlign: "center",
-
             paddingBottom: "80px",
           }}
         >
+
           <p
             style={{
               margin: "0 0 15px",
-
               fontFamily: "Cinzel, serif",
-
               fontSize: "10px",
-
               letterSpacing: "5px",
-
               color: "#a47a38",
             }}
           >
             EVENT {event.number}
           </p>
 
+
+          {/* SYMBOL */}
+
           <div
             style={{
               width: "65px",
-
               height: "65px",
-
               margin: "0 auto 25px",
 
               borderRadius: "50%",
@@ -322,138 +294,140 @@ function EventPage() {
                 "1px solid rgba(193,154,80,0.55)",
 
               display: "flex",
-
               alignItems: "center",
-
               justifyContent: "center",
 
               color: "#c19a50",
 
               fontSize: "18px",
+
+              boxShadow:
+                "0 0 25px rgba(193,154,80,0.05)",
             }}
           >
             ◆
           </div>
 
+
+          {/* EVENT NAME */}
+
           <h1
             style={{
               margin: 0,
-
               fontFamily: "Cinzel, serif",
-
-              fontSize:
-                "clamp(38px, 7vw, 80px)",
-
+              fontSize: "clamp(38px, 7vw, 80px)",
               fontWeight: 500,
-
               lineHeight: 1.1,
-
               color: "#d8c28d",
             }}
           >
             {event.name}
           </h1>
 
+
+          {/* CATEGORY */}
+
           <p
             style={{
               marginTop: "20px",
-
               color: "#9a8d75",
-
               fontSize: "14px",
+              letterSpacing: "1px",
             }}
           >
             {event.category}
           </p>
 
+
+          {/* TAGLINE */}
+
           <blockquote
             style={{
               maxWidth: "650px",
-
               margin: "30px auto",
-
               fontFamily: "Cinzel, serif",
-
               fontSize: "15px",
-
               lineHeight: 1.8,
-
               color: "#b9a77f",
-
               fontStyle: "italic",
             }}
           >
             "{event.tagline}"
           </blockquote>
+
         </motion.section>
 
-        {/* ABOUT */}
+
+        {/* ==================================================
+            ABOUT
+        ================================================== */}
+
         <section
           style={{
-            padding:
-              "70px 0",
-
+            padding: "70px 0",
             borderTop:
               "1px solid rgba(193,154,80,0.15)",
           }}
         >
+
           <p
             style={{
               fontFamily: "Cinzel, serif",
-
               fontSize: "10px",
-
               letterSpacing: "4px",
-
               color: "#a47a38",
+              margin: 0,
             }}
           >
             ABOUT THE EVENT
           </p>
 
+
           <h2
             style={{
               fontFamily: "Cinzel, serif",
-
               fontSize:
                 "clamp(25px, 5vw, 45px)",
-
               fontWeight: 500,
-
               color: "#d8c28d",
+              margin:
+                "15px 0 25px",
             }}
           >
             THE BATTLE AWAITS
           </h2>
 
+
           <p
             style={{
               maxWidth: "800px",
-
               fontSize: "15px",
-
               lineHeight: 1.9,
-
               color: "#a79a82",
+              margin: 0,
             }}
           >
             {event.description}
           </p>
+
         </section>
 
-        {/* DETAILS */}
+
+        {/* ==================================================
+            DETAILS
+        ================================================== */}
+
         <section
+          className="event-details-grid"
           style={{
             display: "grid",
-
             gridTemplateColumns:
               "repeat(3, 1fr)",
-
             gap: "18px",
-
             marginBottom: "80px",
           }}
         >
+
           <Detail
             title="TEAM SIZE"
             value={event.teamSize}
@@ -468,67 +442,66 @@ function EventPage() {
             title="VENUE"
             value={event.venue}
           />
+
         </section>
 
-        {/* RULES */}
+
+        {/* ==================================================
+            RULES
+        ================================================== */}
+
         <section
           style={{
-            padding:
-              "70px 0",
-
+            padding: "70px 0",
             borderTop:
               "1px solid rgba(193,154,80,0.15)",
           }}
         >
+
           <p
             style={{
               fontFamily: "Cinzel, serif",
-
               fontSize: "10px",
-
               letterSpacing: "4px",
-
               color: "#a47a38",
+              margin: 0,
             }}
           >
             THE LAWS OF THE REALM
           </p>
 
+
           <h2
             style={{
               fontFamily: "Cinzel, serif",
-
               fontSize:
                 "clamp(25px, 5vw, 45px)",
-
               fontWeight: 500,
-
               color: "#d8c28d",
+              margin:
+                "15px 0 25px",
             }}
           >
             RULES & REGULATIONS
           </h2>
 
+
           <ol
             style={{
               padding: 0,
-
               marginTop: "40px",
-
               listStyle: "none",
             }}
           >
+
             {event.rules.map(
               (rule, index) => (
                 <li
                   key={index}
                   style={{
                     display: "flex",
-
                     gap: "20px",
-
-                    padding:
-                      "20px 0",
+                    padding: "20px 0",
 
                     borderBottom:
                       "1px solid rgba(193,154,80,0.12)",
@@ -540,13 +513,12 @@ function EventPage() {
                     lineHeight: 1.7,
                   }}
                 >
+
                   <span
                     style={{
                       color: "#c19a50",
-
                       fontFamily:
                         "Cinzel, serif",
-
                       minWidth: "30px",
                     }}
                   >
@@ -558,13 +530,20 @@ function EventPage() {
                   <span>
                     {rule}
                   </span>
+
                 </li>
               )
             )}
+
           </ol>
+
         </section>
 
-        {/* REGISTER */}
+
+        {/* ==================================================
+            REGISTER
+        ================================================== */}
+
         <section
           style={{
             marginTop: "70px",
@@ -578,41 +557,42 @@ function EventPage() {
 
             background:
               "linear-gradient(145deg, rgba(38,31,20,0.7), rgba(13,10,7,0.9))",
+
+            boxSizing: "border-box",
           }}
         >
+
           <p
             style={{
               fontFamily: "Cinzel, serif",
-
               fontSize: "10px",
-
               letterSpacing: "4px",
-
               color: "#a47a38",
+              margin: 0,
             }}
           >
             YOUR JOURNEY BEGINS
           </p>
 
+
           <h2
             style={{
               fontFamily: "Cinzel, serif",
-
               fontSize:
                 "clamp(28px, 5vw, 50px)",
-
               color: "#d8c28d",
-
               fontWeight: 500,
+              margin:
+                "15px 0 20px",
             }}
           >
             CLAIM YOUR PLACE
           </h2>
 
+
           <p
             style={{
               color: "#978c77",
-
               marginBottom: "30px",
             }}
           >
@@ -620,7 +600,9 @@ function EventPage() {
             for the challenge.
           </p>
 
+
           <button
+            type="button"
             style={{
               padding: "15px 28px",
 
@@ -641,22 +623,36 @@ function EventPage() {
           >
             REGISTER NOW
           </button>
+
         </section>
+
       </div>
 
-      {/* RESPONSIVE */}
+
+      {/* ==================================================
+          RESPONSIVE
+      ================================================== */}
+
       <style>
         {`
           @media (max-width: 650px) {
+
             .event-details-grid {
               grid-template-columns: 1fr !important;
             }
+
           }
         `}
       </style>
+
     </main>
   );
 }
+
+
+// ======================================================
+// DETAIL COMPONENT
+// ======================================================
 
 function Detail({ title, value }) {
   return (
@@ -669,12 +665,14 @@ function Detail({ title, value }) {
 
         background:
           "rgba(25,20,14,0.65)",
+
+        boxSizing: "border-box",
       }}
     >
+
       <span
         style={{
           display: "block",
-
           marginBottom: "10px",
 
           fontFamily: "Cinzel, serif",
@@ -689,6 +687,7 @@ function Detail({ title, value }) {
         {title}
       </span>
 
+
       <strong
         style={{
           color: "#d8c28d",
@@ -700,8 +699,10 @@ function Detail({ title, value }) {
       >
         {value}
       </strong>
+
     </div>
   );
 }
+
 
 export default EventPage;
