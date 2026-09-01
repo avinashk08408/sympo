@@ -1,252 +1,234 @@
-import { useEffect, useState } from "react";
-import "./Hero.css";
+import { motion } from "framer-motion";
 
-import heroVideo from "../assets/videos/hero-dragon.mp4";
-
-const targetDate = new Date("2026-09-16T09:00:00+05:30");
-
-function getTimeLeft() {
-  const difference = targetDate.getTime() - Date.now();
-
-  if (difference <= 0) {
-    return {
-      days: 0,
-      hours: 0,
-      minutes: 0,
-      seconds: 0,
-    };
-  }
-
-  return {
-    days: Math.floor(
-      difference / (1000 * 60 * 60 * 24)
-    ),
-
-    hours: Math.floor(
-      (difference / (1000 * 60 * 60)) % 24
-    ),
-
-    minutes: Math.floor(
-      (difference / (1000 * 60)) % 60
-    ),
-
-    seconds: Math.floor(
-      (difference / 1000) % 60
-    ),
-  };
-}
-
-function pad(number) {
-  return String(number).padStart(2, "0");
-}
+const HERO_VIDEO =
+  "https://res.cloudinary.com/egrvexxs/video/upload/v1788282471/InShot_20260831_191916680.mp4";
 
 export default function Hero() {
-  const [timeLeft, setTimeLeft] =
-    useState(getTimeLeft());
-
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setTimeLeft(getTimeLeft());
-    }, 1000);
-
-    return () => clearInterval(timer);
-  }, []);
-
-  const goToEvents = () => {
-    document
-      .getElementById("events")
-      ?.scrollIntoView({
-        behavior: "smooth",
-      });
-  };
-
   return (
-    <section className="hero">
-
-      {/* =================================
-          DRAGON VIDEO BACKGROUND
-      ================================= */}
-
+    <section
+      id="hero"
+      style={{
+        position: "relative",
+        minHeight: "100vh",
+        width: "100%",
+        overflow: "hidden",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        background: "#070605",
+      }}
+    >
+      {/* VIDEO BACKGROUND */}
       <video
-        className="hero-video"
         autoPlay
         muted
         loop
         playsInline
         preload="auto"
+        style={{
+          position: "absolute",
+          inset: 0,
+          width: "100%",
+          height: "100%",
+          objectFit: "cover",
+          zIndex: 0,
+        }}
       >
-        <source
-          src={heroVideo}
-          type="video/mp4"
-        />
+        <source src={HERO_VIDEO} type="video/mp4" />
       </video>
 
-      {/* DARK CINEMATIC OVERLAY */}
-      <div className="hero-overlay" />
+      {/* DARK OVERLAY */}
+      <div
+        style={{
+          position: "absolute",
+          inset: 0,
+          zIndex: 1,
 
-      <div className="hero-glow hero-glow-one" />
-      <div className="hero-glow hero-glow-two" />
+          background:
+            "linear-gradient(180deg, rgba(5,4,3,0.35) 0%, rgba(7,6,5,0.48) 45%, rgba(7,6,5,0.96) 100%)",
+        }}
+      />
 
-      {/* =================================
-          COLLEGE
-      ================================= */}
+      {/* GOLD/BLACK CINEMATIC OVERLAY */}
+      <div
+        style={{
+          position: "absolute",
+          inset: 0,
+          zIndex: 2,
 
-      <div className="hero-college">
+          background:
+            "radial-gradient(circle at center, rgba(193,154,80,0.08), transparent 55%)",
 
-        <img
-          src="/sympo/images/srm-logo.png"
-          alt="SRM Valliammai Engineering College"
-          className="srm-logo"
+          pointerEvents: "none",
+        }}
+      />
+
+      {/* HERO CONTENT */}
+      <motion.div
+        initial={{
+          opacity: 0,
+          y: 35,
+        }}
+        animate={{
+          opacity: 1,
+          y: 0,
+        }}
+        transition={{
+          duration: 0.8,
+          ease: "easeOut",
+        }}
+        style={{
+          position: "relative",
+          zIndex: 3,
+
+          width: "90%",
+          maxWidth: "1000px",
+
+          textAlign: "center",
+
+          color: "#d8c28d",
+        }}
+      >
+        <p
+          style={{
+            margin: "0 0 18px",
+
+            fontFamily: "Cinzel, serif",
+
+            fontSize: "11px",
+
+            letterSpacing: "5px",
+
+            color: "#b28a46",
+          }}
+        >
+          THE HOUSE OF THE DRAGON
+        </p>
+
+        <h1
+          style={{
+            margin: 0,
+
+            fontFamily: "Cinzel, serif",
+
+            fontSize: "clamp(42px, 9vw, 100px)",
+
+            fontWeight: 500,
+
+            lineHeight: 1.05,
+
+            letterSpacing: "4px",
+
+            color: "#e1c98d",
+
+            textShadow:
+              "0 4px 25px rgba(0,0,0,0.9)",
+          }}
+        >
+          ZYVERSE
+        </h1>
+
+        <p
+          style={{
+            marginTop: "18px",
+
+            fontFamily: "Cinzel, serif",
+
+            fontSize: "clamp(13px, 2vw, 18px)",
+
+            letterSpacing: "7px",
+
+            color: "#c7ad72",
+          }}
+        >
+          2K26
+        </p>
+
+        <div
+          style={{
+            width: "90px",
+            height: "1px",
+
+            margin: "28px auto",
+
+            background:
+              "linear-gradient(90deg, transparent, #c19a50, transparent)",
+          }}
         />
 
-        <div className="college-text">
+        <p
+          style={{
+            maxWidth: "600px",
 
-          <h3>
-            SRM VALLIAMMAI
-          </h3>
+            margin: "0 auto",
 
-          <p>
-            ENGINEERING COLLEGE
-          </p>
+            fontSize: "13px",
 
-        </div>
+            lineHeight: 1.8,
 
-      </div>
+            color: "#c0b49c",
+          }}
+        >
+          Five battles. One realm. One throne.
+        </p>
 
-      {/* DEPARTMENT */}
+        {/* SCROLL TO EXPLORE */}
+        <motion.div
+          animate={{
+            y: [0, 8, 0],
+          }}
+          transition={{
+            duration: 1.6,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
+          style={{
+            marginTop: "55px",
 
-      <p className="hero-department">
-        DEPARTMENT OF CYBER SECURITY
-      </p>
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
 
-      {/* =================================
-          ZYVERSE
-      ================================= */}
+            gap: "12px",
 
-      <div className="zyverse">
+            cursor: "pointer",
+          }}
+          onClick={() => {
+            document
+              .getElementById("about")
+              ?.scrollIntoView({
+                behavior: "smooth",
+              });
+          }}
+        >
+          <span
+            style={{
+              fontFamily: "Cinzel, serif",
 
-        <div className="zyverse-name">
+              fontSize: "14px",
 
-          <span className="zyverse-z">
-            Z
+              letterSpacing: "4px",
+
+              color: "#d4bd82",
+
+              textShadow:
+                "0 2px 10px rgba(0,0,0,0.9)",
+            }}
+          >
+            SCROLL TO EXPLORE
           </span>
 
-          <span className="zyverse-yverse">
-            YVERSE
+          <span
+            style={{
+              fontSize: "18px",
+
+              color: "#c19a50",
+            }}
+          >
+            ↓
           </span>
-
-        </div>
-
-        <div className="zyverse-year">
-          2K26
-        </div>
-
-      </div>
-
-      {/* DECORATIVE LINE */}
-
-      <div className="hero-line">
-
-        <span />
-
-        <b>
-          ◆
-        </b>
-
-        <span />
-
-      </div>
-
-      {/* EVENT NAME */}
-
-      <div className="time-bomb">
-        <span>
-          TIME BOMB
-        </span>
-      </div>
-
-      {/* COUNTDOWN */}
-
-      <div className="countdown-title">
-        EVENT BEGINS IN
-      </div>
-
-      <div className="countdown">
-
-        <div className="count-item">
-          <strong>
-            {pad(timeLeft.days)}
-          </strong>
-
-          <span>
-            DAYS
-          </span>
-        </div>
-
-        <div className="count-item">
-          <strong>
-            {pad(timeLeft.hours)}
-          </strong>
-
-          <span>
-            HRS
-          </span>
-        </div>
-
-        <div className="count-item">
-          <strong>
-            {pad(timeLeft.minutes)}
-          </strong>
-
-          <span>
-            MINS
-          </span>
-        </div>
-
-        <div className="count-item">
-          <strong>
-            {pad(timeLeft.seconds)}
-          </strong>
-
-          <span>
-            SECS
-          </span>
-        </div>
-
-      </div>
-
-      {/* DATE */}
-
-      <div className="event-date">
-        16 SEPTEMBER 2026
-      </div>
-
-      {/* EXPLORE */}
-
-      <button
-        className="explore-button"
-        onClick={goToEvents}
-      >
-        EXPLORE EVENTS
-
-        <span>
-          ↓
-        </span>
-
-      </button>
-
-      {/* SCROLL */}
-
-      <div className="hero-scroll">
-
-        <span>
-          SCROLL TO EXPLORE
-        </span>
-
-        <i />
-
-      </div>
-
+        </motion.div>
+      </motion.div>
     </section>
   );
 }
