@@ -1,79 +1,126 @@
 import { motion } from "framer-motion";
 import "./ZyverseTeam.css";
 
-const teams = [
+const team = [
   {
     role: "DISCIPLINE HEAD",
-    members: ["Saahith", "Bala Kumaran"],
+    names: ["SAAHITH", "BALA KUMARAN"],
   },
   {
     role: "REGISTRATION HEAD",
-    members: ["Manoj", "Naveen"],
+    names: ["MANOJ", "NAVEEN"],
   },
   {
     role: "DESIGN HEAD",
-    members: ["Durai R"],
+    names: ["DURAI R"],
   },
   {
     role: "SOUVENIR",
-    members: ["Rakesh"],
+    names: ["RAKESH"],
   },
   {
     role: "PURCHASE",
-    members: ["Karthikeyan", "Deepak — 3rd Year"],
+    names: ["KARTHIKEYAN", "DEEPAK"],
+    badge: "3RD YEAR",
   },
   {
     role: "RECEPTION",
-    members: ["Shamuga Priya", "Aarthy"],
+    names: ["SHAMUGA PRIYA", "AARTHY"],
   },
   {
     role: "PROMOTION",
-    members: ["Nithin Shyam", "Rithiga Roobini"],
+    names: ["NITHIN SHYAM", "RITHIGA ROOBINI"],
   },
   {
     role: "FOOD",
-    members: ["Karthik Selvam", "Gokula Dharshan"],
+    names: ["KARTHIK SELVAM", "GOKULA DHARSHAN"],
   },
 ];
 
 export default function ZyverseTeam() {
   return (
-    <section id="team" className="zyverse-team-section">
+    <section className="zyverse-team-section" id="zyverse-team">
+
+      {/* HEADER */}
 
       <motion.div
-        className="team-heading"
-        initial={{ opacity: 0, y: 35 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, amount: 0.15 }}
-        transition={{ duration: 0.4 }}
+        className="zyverse-heading"
+        initial={{
+          opacity: 0,
+          y: 30,
+        }}
+        whileInView={{
+          opacity: 1,
+          y: 0,
+        }}
+        viewport={{
+          once: true,
+          amount: 0.2,
+        }}
+        transition={{
+          duration: 0.45,
+        }}
       >
-
-        <span>
-          THE COUNCIL OF THE REALM
+        <span className="section-number">
+          05
         </span>
 
+        <p className="eyebrow">
+          THE PEOPLE BEHIND THE REALM
+        </p>
+
         <h2>
-          ZYVERSE <b>TEAM</b>
+          ZYVERSE <span>TEAM</span>
         </h2>
 
-        <div className="team-ornament">
-          <i />
-          <strong>◆</strong>
-          <i />
-        </div>
+        <p className="heading-description">
+          The council of minds who forged Zyverse 2K26.
+        </p>
 
+        <div className="ornament">
+          <i></i>
+          <b>◆</b>
+          <i></i>
+        </div>
       </motion.div>
 
 
-      <div className="team-grid">
+      {/* THE COUNCIL */}
 
-        {teams.map((team, index) => (
-          <motion.article
-            className="team-card"
-            key={team.role}
+      <motion.div
+        className="council-title"
+        initial={{
+          opacity: 0,
+          y: 20,
+        }}
+        whileInView={{
+          opacity: 1,
+          y: 0,
+        }}
+        viewport={{
+          once: true,
+        }}
+        transition={{
+          duration: 0.35,
+        }}
+      >
+        <h3>THE COUNCIL</h3>
+
+        <div></div>
+      </motion.div>
+
+
+      {/* TEAM CARDS */}
+
+      <div className="zyverse-team-grid">
+
+        {team.map((person, index) => (
+          <motion.div
+            className="zyverse-team-card"
+            key={person.role}
             initial={{
               opacity: 0,
-              y: 30,
+              y: 25,
             }}
             whileInView={{
               opacity: 1,
@@ -81,47 +128,35 @@ export default function ZyverseTeam() {
             }}
             viewport={{
               once: true,
-              amount: 0.1,
+              amount: 0.15,
             }}
             transition={{
-              duration: 0.35,
-              delay: index * 0.05,
+              duration: 0.3,
+              delay: index * 0.04,
             }}
           >
 
-            <div className="team-card-top">
+            <div className="team-card-header">
 
-              <span className="team-index">
-                {String(index + 1).padStart(2, "0")}
-              </span>
+              <span>{person.role}</span>
 
-              <span className="team-mark">
-                ◆
-              </span>
+              {person.badge && (
+                <small>{person.badge}</small>
+              )}
 
             </div>
 
-            <div className="team-card-body">
+            <div className="team-names">
 
-              <p>
-                {team.role}
-              </p>
-
-              <div className="team-members">
-
-                {team.members.map((member) => (
-                  <h3 key={member}>
-                    {member}
-                  </h3>
-                ))}
-
-              </div>
+              {person.names.map((name) => (
+                <p key={name}>
+                  {name}
+                </p>
+              ))}
 
             </div>
 
-            <div className="team-card-line" />
-
-          </motion.article>
+          </motion.div>
         ))}
 
       </div>
