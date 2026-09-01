@@ -111,13 +111,10 @@ export default function Hero() {
 
       {/* EVENT NAME */}
       <div className="time-bomb">
-        <span>TIME BOMB</span>
+        <span>  EVENT BEGINS IN</span>
       </div>
 
       {/* COUNTDOWN */}
-      <div className="countdown-title">
-        EVENT BEGINS IN
-      </div>
 
       <div className="countdown">
 
@@ -145,7 +142,7 @@ export default function Hero() {
 
       {/* DATE */}
       <div className="event-date">
-        16 SEPTEMBER 2026
+        12 SEPTEMBER 2026
       </div>
 
       {/* BUTTON */}
