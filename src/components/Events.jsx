@@ -49,7 +49,6 @@ export default function Events() {
 
           position: "relative",
 
-          /* Ancient metal / dragon theme */
           background:
             "linear-gradient(145deg, rgba(38,31,20,0.92), rgba(13,10,7,0.98))",
 
@@ -67,9 +66,7 @@ export default function Events() {
             "border-color 0.15s ease, box-shadow 0.15s ease, background 0.15s ease",
         }}
       >
-
         {/* TOP DECORATIVE LINE */}
-
         <div
           style={{
             position: "absolute",
@@ -82,9 +79,7 @@ export default function Events() {
           }}
         />
 
-
         {/* EVENT NUMBER */}
-
         <div
           style={{
             fontFamily: "Cinzel, serif",
@@ -96,9 +91,7 @@ export default function Events() {
           EVENT {event.number}
         </div>
 
-
         {/* SYMBOL */}
-
         <motion.div
           whileHover={{
             rotate: 45,
@@ -133,9 +126,7 @@ export default function Events() {
           ◆
         </motion.div>
 
-
         {/* EVENT NAME */}
-
         <h3
           style={{
             margin: "0 0 12px",
@@ -156,9 +147,7 @@ export default function Events() {
           {event.name}
         </h3>
 
-
         {/* DESCRIPTION */}
-
         <p
           style={{
             margin: "0 auto",
@@ -175,9 +164,7 @@ export default function Events() {
           {event.tagline}
         </p>
 
-
         {/* MORE INFORMATION */}
-
         <Link
           to={`/events/${event.id}`}
           style={{
@@ -255,11 +242,9 @@ export default function Events() {
             →
           </span>
         </Link>
-
       </motion.div>
     );
   };
-
 
   return (
     <section
@@ -267,9 +252,11 @@ export default function Events() {
       style={{
         width: "100%",
 
-        minHeight: "100vh",
+        /* FIXED: no forced full-screen height */
+        minHeight: "auto",
 
-        padding: "120px 7%",
+        /* Reduced top and bottom spacing */
+        padding: "90px 7% 70px",
 
         boxSizing: "border-box",
 
@@ -278,7 +265,6 @@ export default function Events() {
         overflow: "hidden",
       }}
     >
-
       {/* ==========================================
           HEADER
       ========================================== */}
@@ -301,11 +287,9 @@ export default function Events() {
         }}
         style={{
           textAlign: "center",
-
-          marginBottom: "65px",
+          marginBottom: "55px",
         }}
       >
-
         <span
           style={{
             display: "block",
@@ -324,7 +308,6 @@ export default function Events() {
           03
         </span>
 
-
         <p
           style={{
             margin: "0 0 12px",
@@ -340,7 +323,6 @@ export default function Events() {
         >
           CHOOSE YOUR BATTLE
         </p>
-
 
         <h2
           style={{
@@ -361,7 +343,6 @@ export default function Events() {
           THE FIVE EVENTS
         </h2>
 
-
         <div
           style={{
             display: "flex",
@@ -375,7 +356,6 @@ export default function Events() {
             marginTop: "22px",
           }}
         >
-
           <span
             style={{
               width: "70px",
@@ -405,15 +385,11 @@ export default function Events() {
               background: "#80612f",
             }}
           />
-
         </div>
-
       </motion.div>
-
 
       {/* ==========================================
           ROW 1
-
           EVENT 1 | EVENT 2 | EVENT 3
       ========================================== */}
 
@@ -433,7 +409,6 @@ export default function Events() {
           gap: "18px",
         }}
       >
-
         {firstRow.map((event, index) => (
           <EventCard
             key={event.id}
@@ -441,14 +416,11 @@ export default function Events() {
             index={index}
           />
         ))}
-
       </div>
-
 
       {/* ==========================================
           ROW 2
-
-             EVENT 4 | EVENT 5
+          EVENT 4 | EVENT 5
       ========================================== */}
 
       <div
@@ -467,7 +439,6 @@ export default function Events() {
           gap: "18px",
         }}
       >
-
         {secondRow.map((event, index) => (
           <EventCard
             key={event.id}
@@ -475,9 +446,7 @@ export default function Events() {
             index={index + 3}
           />
         ))}
-
       </div>
-
     </section>
   );
 }
