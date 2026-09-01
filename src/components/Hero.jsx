@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import "./Hero.css";
 
+import heroVideo from "../assets/videos/hero-dragon.mp4";
+
 const targetDate = new Date("2026-09-16T09:00:00+05:30");
 
 function getTimeLeft() {
@@ -16,13 +18,18 @@ function getTimeLeft() {
   }
 
   return {
-    days: Math.floor(difference / (1000 * 60 * 60 * 24)),
+    days: Math.floor(
+      difference / (1000 * 60 * 60 * 24)
+    ),
+
     hours: Math.floor(
       (difference / (1000 * 60 * 60)) % 24
     ),
+
     minutes: Math.floor(
       (difference / (1000 * 60)) % 60
     ),
+
     seconds: Math.floor(
       (difference / 1000) % 60
     ),
@@ -34,7 +41,8 @@ function pad(number) {
 }
 
 export default function Hero() {
-  const [timeLeft, setTimeLeft] = useState(getTimeLeft());
+  const [timeLeft, setTimeLeft] =
+    useState(getTimeLeft());
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -55,12 +63,34 @@ export default function Hero() {
   return (
     <section className="hero">
 
-      {/* BACKGROUND */}
+      {/* =================================
+          DRAGON VIDEO BACKGROUND
+      ================================= */}
+
+      <video
+        className="hero-video"
+        autoPlay
+        muted
+        loop
+        playsInline
+        preload="auto"
+      >
+        <source
+          src={heroVideo}
+          type="video/mp4"
+        />
+      </video>
+
+      {/* DARK CINEMATIC OVERLAY */}
       <div className="hero-overlay" />
+
       <div className="hero-glow hero-glow-one" />
       <div className="hero-glow hero-glow-two" />
 
-      {/* COLLEGE */}
+      {/* =================================
+          COLLEGE
+      ================================= */}
+
       <div className="hero-college">
 
         <img
@@ -70,18 +100,29 @@ export default function Hero() {
         />
 
         <div className="college-text">
-          <h3>SRM VALLIAMMAI</h3>
-          <p>ENGINEERING COLLEGE</p>
+
+          <h3>
+            SRM VALLIAMMAI
+          </h3>
+
+          <p>
+            ENGINEERING COLLEGE
+          </p>
+
         </div>
 
       </div>
 
       {/* DEPARTMENT */}
+
       <p className="hero-department">
         DEPARTMENT OF CYBER SECURITY
       </p>
 
-      {/* EVENT LOGO */}
+      {/* =================================
+          ZYVERSE
+      ================================= */}
+
       <div className="zyverse">
 
         <div className="zyverse-name">
@@ -103,61 +144,107 @@ export default function Hero() {
       </div>
 
       {/* DECORATIVE LINE */}
+
       <div className="hero-line">
+
         <span />
-        <b>◆</b>
+
+        <b>
+          ◆
+        </b>
+
         <span />
+
       </div>
 
       {/* EVENT NAME */}
+
       <div className="time-bomb">
-        <span>  EVENT BEGINS IN</span>
+        <span>
+          TIME BOMB
+        </span>
       </div>
 
       {/* COUNTDOWN */}
 
+      <div className="countdown-title">
+        EVENT BEGINS IN
+      </div>
+
       <div className="countdown">
 
         <div className="count-item">
-          <strong>{pad(timeLeft.days)}</strong>
-          <span>DAYS</span>
+          <strong>
+            {pad(timeLeft.days)}
+          </strong>
+
+          <span>
+            DAYS
+          </span>
         </div>
 
         <div className="count-item">
-          <strong>{pad(timeLeft.hours)}</strong>
-          <span>HRS</span>
+          <strong>
+            {pad(timeLeft.hours)}
+          </strong>
+
+          <span>
+            HRS
+          </span>
         </div>
 
         <div className="count-item">
-          <strong>{pad(timeLeft.minutes)}</strong>
-          <span>MINS</span>
+          <strong>
+            {pad(timeLeft.minutes)}
+          </strong>
+
+          <span>
+            MINS
+          </span>
         </div>
 
         <div className="count-item">
-          <strong>{pad(timeLeft.seconds)}</strong>
-          <span>SECS</span>
+          <strong>
+            {pad(timeLeft.seconds)}
+          </strong>
+
+          <span>
+            SECS
+          </span>
         </div>
 
       </div>
 
       {/* DATE */}
+
       <div className="event-date">
-        12 SEPTEMBER 2026
+        16 SEPTEMBER 2026
       </div>
 
-      {/* BUTTON */}
+      {/* EXPLORE */}
+
       <button
         className="explore-button"
         onClick={goToEvents}
       >
         EXPLORE EVENTS
-        <span>↓</span>
+
+        <span>
+          ↓
+        </span>
+
       </button>
 
-      {/* BOTTOM NAV */}
+      {/* SCROLL */}
+
       <div className="hero-scroll">
-        <span>SCROLL TO EXPLORE</span>
+
+        <span>
+          SCROLL TO EXPLORE
+        </span>
+
         <i />
+
       </div>
 
     </section>
