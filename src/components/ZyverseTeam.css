@@ -1,263 +1,312 @@
+/* =====================================================
+   ZYVERSE TEAM
+   THE COUNCIL
+===================================================== */
+
 .zyverse-team-section {
   position: relative;
 
-  padding: 120px 7%;
+  width: 100%;
+  padding: 110px 6% 120px;
 
   background:
-    linear-gradient(
-      180deg,
-      #0d0c0b,
-      #100e0b
-    );
+    radial-gradient(
+      circle at 50% 30%,
+      rgba(122, 87, 32, 0.08),
+      transparent 48%
+    ),
+    #080706;
 
+  color: #e4d1a0;
   overflow: hidden;
 }
 
 
-/* HEADING */
+/* ================= HEADER ================= */
 
-.team-heading {
+.zyverse-heading {
+  max-width: 850px;
+  margin: 0 auto 65px;
+
   text-align: center;
-  margin-bottom: 70px;
 }
 
-.team-heading > span {
+.zyverse-heading .section-number {
   display: block;
+  margin-bottom: 15px;
 
+  font-family: "Cinzel", serif;
+  font-size: 11px;
+  letter-spacing: 5px;
+
+  color: #8d703c;
+}
+
+.zyverse-heading .eyebrow {
   margin-bottom: 14px;
 
   font-family: "Cinzel", serif;
   font-size: 10px;
-  letter-spacing: 4px;
+  letter-spacing: 5px;
 
-  color: #92733a;
+  color: #927643;
 }
 
-.team-heading h2 {
+.zyverse-heading h2 {
   margin: 0;
 
   font-family: "Cinzel", serif;
-  font-size: clamp(34px, 5vw, 58px);
+  font-size: clamp(35px, 5vw, 65px);
   font-weight: 500;
-  letter-spacing: 3px;
+  letter-spacing: 2px;
 
-  color: #ddd2bd;
+  color: #e3d0a0;
 }
 
-.team-heading h2 b {
-  color: #c19a50;
-  font-weight: 600;
+.zyverse-heading h2 span {
+  color: #b98d3e;
 }
 
-.team-ornament {
+.zyverse-heading .heading-description {
+  max-width: 600px;
+  margin: 20px auto 0;
+
+  font-family: Georgia, serif;
+  font-size: 15px;
+  line-height: 1.8;
+
+  color: #8e836d;
+}
+
+.zyverse-heading .ornament {
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
 
-  gap: 14px;
-
-  margin-top: 24px;
+  gap: 12px;
+  margin-top: 25px;
 }
 
-.team-ornament i {
-  display: block;
+.zyverse-heading .ornament i {
+  width: 60px;
+  height: 1px;
+  background: #70582d;
+}
 
-  width: 70px;
+.zyverse-heading .ornament b {
+  font-size: 8px;
+  color: #bd9342;
+}
+
+
+/* =====================================================
+   THE COUNCIL
+===================================================== */
+
+.council-title {
+  text-align: center;
+  margin-bottom: 45px;
+}
+
+.council-title h3 {
+  margin: 0;
+
+  font-family: "Cinzel", serif;
+  font-size: clamp(24px, 4vw, 38px);
+  font-weight: 500;
+  letter-spacing: 4px;
+
+  color: #d5c08c;
+}
+
+.council-title div {
+  width: 45px;
   height: 1px;
 
-  background:
-    linear-gradient(
-      90deg,
-      transparent,
-      #9c7a3d
-    );
-}
+  margin: 20px auto 0;
 
-.team-ornament i:last-child {
-  background:
-    linear-gradient(
-      90deg,
-      #9c7a3d,
-      transparent
-    );
-}
-
-.team-ornament strong {
-  font-size: 9px;
-  color: #c19a50;
+  background: #8c6d35;
 }
 
 
-/* GRID */
+/* =====================================================
+   TEAM GRID
+===================================================== */
 
-.team-grid {
-  width: min(1150px, 100%);
-  margin: auto;
+.zyverse-team-grid {
+  width: min(1100px, 100%);
+  margin: 0 auto;
 
   display: grid;
-
-  grid-template-columns:
-    repeat(4, 1fr);
+  grid-template-columns: repeat(3, minmax(0, 1fr));
 
   gap: 18px;
 }
 
 
-/* CARD */
+/* =====================================================
+   TEAM CARD
+===================================================== */
 
-.team-card {
+.zyverse-team-card {
   position: relative;
 
-  min-height: 190px;
+  min-height: 145px;
 
-  padding: 22px;
+  padding: 28px 25px;
 
-  border:
-    1px solid
-    rgba(193, 154, 80, 0.25);
+  border: 1px solid rgba(132, 101, 49, 0.3);
 
   background:
     linear-gradient(
       145deg,
-      rgba(193, 154, 80, 0.07),
-      rgba(255, 255, 255, 0.012)
+      rgba(48, 33, 15, 0.35),
+      rgba(13, 10, 7, 0.8)
     );
 
   transition:
-    transform 0.2s ease,
-    border-color 0.2s ease,
-    box-shadow 0.2s ease;
+    transform 0.22s ease,
+    border-color 0.22s ease,
+    background 0.22s ease,
+    box-shadow 0.22s ease;
 }
 
-.team-card:hover {
+.zyverse-team-card:hover {
   transform: translateY(-6px);
 
-  border-color:
-    rgba(193, 154, 80, 0.7);
-
-  box-shadow:
-    0 15px 35px rgba(0, 0, 0, 0.3),
-    0 0 25px rgba(193, 154, 80, 0.07);
-}
-
-
-/* TOP */
-
-.team-card-top {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-
-  margin-bottom: 28px;
-}
-
-.team-index {
-  font-family: "Cinzel", serif;
-
-  font-size: 9px;
-  letter-spacing: 2px;
-
-  color:
-    rgba(193, 154, 80, 0.45);
-}
-
-.team-mark {
-  font-size: 8px;
-  color: #a17d3d;
-}
-
-
-/* BODY */
-
-.team-card-body p {
-  margin: 0 0 15px;
-
-  font-family: "Cinzel", serif;
-
-  font-size: 9px;
-  letter-spacing: 2px;
-
-  color: #9c7a3d;
-}
-
-.team-members h3 {
-  margin: 5px 0;
-
-  font-family: "Cinzel", serif;
-
-  font-size: 16px;
-  line-height: 1.4;
-
-  font-weight: 500;
-
-  color: #e0d6c4;
-}
-
-
-/* BOTTOM LINE */
-
-.team-card-line {
-  position: absolute;
-
-  left: 22px;
-  right: 22px;
-  bottom: 16px;
-
-  height: 1px;
+  border-color: #a9823e;
 
   background:
     linear-gradient(
-      90deg,
-      rgba(193, 154, 80, 0.35),
-      transparent
+      145deg,
+      rgba(80, 54, 20, 0.35),
+      rgba(18, 13, 8, 0.9)
     );
+
+  box-shadow:
+    0 15px 35px rgba(0, 0, 0, 0.45),
+    0 0 20px rgba(165, 119, 43, 0.06);
+}
+
+.zyverse-team-card::before {
+  content: "";
+
+  position: absolute;
+
+  top: -1px;
+  left: 20%;
+  right: 20%;
+
+  height: 1px;
+
+  background: linear-gradient(
+    90deg,
+    transparent,
+    #a47d36,
+    transparent
+  );
 }
 
 
-/* TABLET */
+/* ================= CARD HEADER ================= */
 
-@media (max-width: 1000px) {
+.team-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 
-  .team-grid {
-    grid-template-columns:
-      repeat(2, 1fr);
-  }
+  gap: 10px;
 
+  margin-bottom: 18px;
+}
+
+.team-card-header span {
+  font-family: "Cinzel", serif;
+  font-size: 10px;
+  letter-spacing: 3px;
+
+  color: #927543;
+}
+
+.team-card-header small {
+  padding: 4px 7px;
+
+  border: 1px solid rgba(173, 135, 61, 0.35);
+
+  font-family: "Cinzel", serif;
+  font-size: 7px;
+  letter-spacing: 1px;
+
+  color: #a98a51;
 }
 
 
-/* MOBILE */
+/* ================= NAMES ================= */
 
-@media (max-width: 600px) {
+.team-names {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.team-names p {
+  margin: 0;
+
+  font-family: "Cinzel", serif;
+  font-size: 15px;
+  letter-spacing: 0.8px;
+
+  color: #d2bf90;
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 750px) {
 
   .zyverse-team-section {
-    padding: 90px 6%;
+    padding: 85px 18px 90px;
   }
 
-  .team-heading {
-    margin-bottom: 55px;
+  .zyverse-heading {
+    margin-bottom: 50px;
   }
 
-  .team-heading > span {
-    font-size: 9px;
+  .zyverse-heading h2 {
+    font-size: 32px;
+  }
+
+  .zyverse-heading .heading-description {
+    font-size: 13px;
+    padding: 0 15px;
+  }
+
+  .council-title {
+    margin-bottom: 35px;
+  }
+
+  .council-title h3 {
+    font-size: 25px;
     letter-spacing: 3px;
   }
 
-  .team-heading h2 {
-    font-size: 31px;
-  }
-
-  .team-grid {
+  .zyverse-team-grid {
     grid-template-columns: 1fr;
-    gap: 15px;
+    gap: 14px;
   }
 
-  .team-card {
-    min-height: 165px;
+  .zyverse-team-card {
+    min-height: 130px;
+    padding: 25px 22px;
   }
 
-  .team-members h3 {
-    font-size: 15px;
+  .team-card-header span {
+    font-size: 9px;
   }
 
-}
+  .team-names p {
+    font-size: 14px;
+  }
+    }
