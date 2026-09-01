@@ -1,5 +1,4 @@
-import { Routes, Route } from "react-router-dom";
-
+import { HashRouter, Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import About from "./components/About";
@@ -27,11 +26,15 @@ function Home() {
 
 function App() {
   return (
+  <HashRouter>
     <Routes>
-      <Route path="/" element={<Home />} />
+  <Route path="/" element={<Home />} />
       <Route path="/events/:eventId" element={<EventPage />} />
     </Routes>
-  );
+    
+</HashRouter>
+    
+    );
 }
 
 export default App;
