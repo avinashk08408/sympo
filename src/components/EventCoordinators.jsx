@@ -1,138 +1,219 @@
 import { motion } from "framer-motion";
 import "./EventCoordinators.css";
 
-const staff = [
-  "Mr. S. Giridharan",
-  "Mr. G. Avinesh Kumar",
+const council = [
+  {
+    role: "VICE PRESIDENT",
+    name: "Cassy",
+  },
+  {
+    role: "SECRETARY",
+    name: "Sri Hari",
+  },
+  {
+    role: "JOINT SECRETARY",
+    name: "Anesh",
+  },
+  {
+    role: "TREASURER",
+    name: "Rakesh",
+  },
+  {
+    role: "JOINT TREASURER",
+    name: "Abishesk Samuel",
+  },
 ];
 
-const coordinators = [
-  ["President", "Gokul Amaran"],
-  ["Vice President", "Cassy"],
-  ["Secretary", "Sri Hari"],
-  ["Joint Secretary", "Anesh"],
-  ["Treasurer", "Rakesh"],
-  ["Joint Treasurer", "Abishesk Samuel"],
-  ["Event Coordinator", "Naveen"],
+const team = [
+  {
+    role: "DISCIPLINE HEAD",
+    names: ["Saahith", "Bala Kumaran"],
+  },
+  {
+    role: "REGISTRATION HEAD",
+    names: ["Manoj", "Naveen"],
+  },
+  {
+    role: "DESIGN HEAD",
+    names: ["Durai R"],
+  },
+  {
+    role: "SOUVENIR",
+    names: ["Rakesh"],
+  },
+  {
+    role: "PURCHASE",
+    names: ["Karthikeyan", "Deepak"],
+    badge: "3RD YEAR",
+  },
+  {
+    role: "RECEPTION",
+    names: ["Shamuga Priya", "Aarthy"],
+  },
+  {
+    role: "PROMOTION",
+    names: ["Nithin Shyam", "Rithiga Roobini"],
+  },
+  {
+    role: "FOOD",
+    names: ["Karthik Selvam", "Gokula Dharshan"],
+  },
+];
+
+const staff = [
+  {
+    role: "STAFF COORDINATOR",
+    name: "MR. S. GIRIDHARAN",
+  },
+  {
+    role: "STAFF COORDINATOR",
+    name: "MR. G. AVINESH KUMAR",
+  },
 ];
 
 export default function EventCoordinators() {
   return (
-    <section id="coordinators" className="coordinators-section">
+    <section className="court-section" id="team">
 
+      {/* HEADER */}
       <motion.div
-        className="coordinators-heading"
+        className="court-heading"
         initial={{ opacity: 0, y: 35 }}
         whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, amount: 0.15 }}
-        transition={{ duration: 0.4 }}
+        viewport={{ once: true, amount: 0.2 }}
+        transition={{ duration: 0.5 }}
       >
-        <span className="section-kicker">
-          THE HANDS BEHIND THE REALM
-        </span>
+        <span className="section-number">04</span>
+
+        <p className="eyebrow">
+          THE HOUSE OF ZYVERSE
+        </p>
 
         <h2>
-          EVENT <span>COORDINATORS</span>
+          THE ROYAL <span>COURT</span>
         </h2>
 
-        <div className="section-ornament">
-          <i></i>
+        <p className="heading-description">
+          The council that guides the realm —
+          the minds and leaders behind Zyverse 2K26.
+        </p>
+
+        <div className="ornament">
+          <i />
           <b>◆</b>
-          <i></i>
+          <i />
         </div>
       </motion.div>
 
+      {/* PRESIDENT */}
+      <motion.div
+        className="president-card"
+        initial={{ opacity: 0, scale: 0.94 }}
+        whileInView={{ opacity: 1, scale: 1 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.45 }}
+      >
+        <span className="card-role">PRESIDENT</span>
+
+        <h3>
+          GOKUL
+          <br />
+          AMARAN
+        </h3>
+
+        <div className="small-ornament">◆</div>
+      </motion.div>
+
+      {/* COUNCIL */}
+      <div className="council-grid">
+        {council.map((person, index) => (
+          <motion.div
+            className="court-card"
+            key={person.role}
+            initial={{ opacity: 0, y: 25 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.15 }}
+            transition={{
+              duration: 0.35,
+              delay: index * 0.04,
+            }}
+          >
+            <span>{person.role}</span>
+            <strong>{person.name}</strong>
+          </motion.div>
+        ))}
+      </div>
+
+      {/* ZYVERSE TEAM */}
+      <motion.div
+        className="sub-heading"
+        initial={{ opacity: 0, y: 25 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+      >
+        <h2>THE COUNCIL</h2>
+        <div className="sub-line" />
+      </motion.div>
+
+      <div className="team-grid">
+        {team.map((person, index) => (
+          <motion.div
+            className="team-card"
+            key={person.role}
+            initial={{ opacity: 0, y: 25 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.15 }}
+            transition={{
+              duration: 0.35,
+              delay: index * 0.04,
+            }}
+          >
+            <div className="team-card-top">
+              <span>{person.role}</span>
+
+              {person.badge && (
+                <small>{person.badge}</small>
+              )}
+            </div>
+
+            <div className="team-names">
+              {person.names.map((name) => (
+                <p key={name}>{name}</p>
+              ))}
+            </div>
+          </motion.div>
+        ))}
+      </div>
 
       {/* STAFF */}
-
       <motion.div
-        className="staff-area"
-        initial={{ opacity: 0, y: 30 }}
+        className="sub-heading staff-heading"
+        initial={{ opacity: 0, y: 25 }}
         whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, amount: 0.15 }}
-        transition={{ duration: 0.4 }}
+        viewport={{ once: true }}
       >
-
-        <div className="sub-heading">
-          <span>01</span>
-          <h3>STAFF</h3>
-        </div>
-
-        <div className="staff-grid">
-
-          {staff.map((name, index) => (
-            <motion.div
-              className="staff-card"
-              key={name}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{
-                duration: 0.35,
-                delay: index * 0.08,
-              }}
-            >
-              <div className="card-symbol">♜</div>
-
-              <div>
-                <span>STAFF</span>
-                <h4>{name}</h4>
-              </div>
-            </motion.div>
-          ))}
-
-        </div>
-
+        <h2>COMMAND STAFF</h2>
+        <div className="sub-line" />
       </motion.div>
 
-
-      {/* COORDINATORS */}
-
-      <motion.div
-        className="office-area"
-        initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, amount: 0.15 }}
-        transition={{ duration: 0.4 }}
-      >
-
-        <div className="sub-heading">
-          <span>02</span>
-          <h3>OFFICE BEARERS</h3>
-        </div>
-
-        <div className="coordinator-grid">
-
-          {coordinators.map(([role, name], index) => (
-            <motion.div
-              className="coordinator-card"
-              key={role}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{
-                duration: 0.35,
-                delay: index * 0.06,
-              }}
-            >
-
-              <span className="coordinator-number">
-                {String(index + 1).padStart(2, "0")}
-              </span>
-
-              <div className="coordinator-content">
-                <span>{role}</span>
-                <h4>{name}</h4>
-              </div>
-
-              <div className="card-arrow">◆</div>
-
-            </motion.div>
-          ))}
-
-        </div>
-
-      </motion.div>
+      <div className="staff-grid">
+        {staff.map((person, index) => (
+          <motion.div
+            className="staff-card"
+            key={person.name}
+            initial={{ opacity: 0, y: 25 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{
+              duration: 0.4,
+              delay: index * 0.08,
+            }}
+          >
+            <span>{person.role}</span>
+            <h3>{person.name}</h3>
+          </motion.div>
+        ))}
+      </div>
 
     </section>
   );
