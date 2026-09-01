@@ -1,4 +1,4 @@
-import { HashRouter, Routes, Route } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
@@ -8,7 +8,6 @@ import Footer from "./components/Footer";
 import EventPage from "./pages/EventPage";
 
 import "./App.css";
-
 
 function Home() {
   return (
@@ -26,36 +25,13 @@ function Home() {
   );
 }
 
-
 function App() {
   return (
-    <HashRouter>
-      <Routes>
-
-        {/* HOME */}
-        <Route
-          path="/"
-          element={<Home />}
-        />
-
-        {/* EVENT DETAILS */}
-        <Route
-          path="/events/:eventId"
-          element={<EventPage />}
-        />
-
-        {/* IMPORTANT:
-            Allows existing #about, #events,
-            #contact etc. navigation to keep working */}
-        <Route
-          path="*"
-          element={<Home />}
-        />
-
-      </Routes>
-    </HashRouter>
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/events/:eventId" element={<EventPage />} />
+    </Routes>
   );
 }
-
 
 export default App;
