@@ -1,51 +1,22 @@
-import { Routes, Route } from "react-router-dom";
+import React from "react";
 
-import Navbar from "./components/Navbar";
-import Hero from "./components/Hero";
-import About from "./components/About";
-import Events from "./components/Events";
-import Footer from "./components/Footer";
-import EventPage from "./pages/EventPage";
+import ReactDOM from "react-dom/client";
 
-import "./App.css";
+import App from "./App";
 
+import "./index.css";
 
-function Home() {
-  return (
-    <>
-      <Navbar />
+ReactDOM.createRoot(
 
-      <main>
-        <Hero />
-        <About />
-        <Events />
-      </main>
+document.getElementById("root")
 
-      <Footer />
-    </>
-  );
-}
+).render(
 
+<React.StrictMode>
 
-function App() {
-  return (
-    <Routes>
+<App />
 
-      {/* HOME */}
-      <Route
-        path="/"
-        element={<Home />}
-      />
+</React.StrictMode>
 
-      {/* EVENT DETAILS */}
-      <Route
-        path="/events/:eventId"
-        element={<EventPage />}
-      />
-
-    </Routes>
-  );
-}
-
-
-export default App;
+);
+main.jsx
