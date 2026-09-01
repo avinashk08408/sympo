@@ -9,6 +9,7 @@ import EventPage from "./pages/EventPage";
 
 import "./App.css";
 
+
 function Home() {
   return (
     <>
@@ -25,13 +26,26 @@ function Home() {
   );
 }
 
+
 function App() {
   return (
     <Routes>
-      <Route path="/" element={<Home />} />
-      <Route path="/events/:eventId" element={<EventPage />} />
+
+      {/* HOME */}
+      <Route
+        path="/"
+        element={<Home />}
+      />
+
+      {/* EVENT DETAILS */}
+      <Route
+        path="/events/:eventId"
+        element={<EventPage />}
+      />
+
     </Routes>
   );
 }
+
 
 export default App;
