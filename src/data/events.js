@@ -59,9 +59,7 @@ export const events = [
     name: "THE KING'S TRAIL",
     category: "DEBUGGING",
     tagline: "Find the flaw. Break the curse.",
-     description:"The kingdom stands divided, and the throne awaits its rightful conqueror.Winter War is a multi-stage cybersecurity battle where participants journey through a series of challenges, puzzles, and security trials. Each victory unlocks the path to the next stage, testing their ability to think, investigate, exploit, and adapt. But the journey ends where the real battle begins. At the heart of the war lies an ultimate Boot2Root showdown — a final fortress waiting to be breached. Participants must uncover its weaknesses, exploit them, escalate their privileges, and seize the final objective.",
-
-Conquer the trials. Breach the fortress. Claim the throne.
+     description:"The kingdom stands divided, and the throne awaits its rightful conqueror.Winter War is a multi-stage cybersecurity battle where participants journey through a series of challenges, puzzles, and security trials. Each victory unlocks the path to the next stage, testing their ability to think, investigate, exploit, and adapt. But the journey ends where the real battle begins. At the heart of the war lies an ultimate Boot2Root showdown — a final fortress waiting to be breached. Participants must uncover its weaknesses, exploit them, escalate their privileges, and seize the final objective. Conquer the trials. Breach the fortress. Claim the throne.",
     teamSize: "1 - 2",
     duration: "40 Minutes",
     venue: "Programming Lab",
@@ -79,7 +77,7 @@ Conquer the trials. Breach the fortress. Claim the throne.
     name: "TESSARION'S TRAIL",
     category: "INNOVATION",
     tagline: "Ideas that are worthy of the throne.",
-     description: "A crime has been committed, and the truth is hidden in plain sight. Participants will receive a detailed case file containing clues, evidence, identities, and digital traces. Their mission is to investigate the case using Open-Source Intelligence (OSINT) techniques—connecting the dots across publicly available information, uncovering hidden leads, and identifying the person responsible for the crime. Every clue brings you closer to the truth, but not every trail leads where it seems. Your objective: Investigate the case, uncover the criminal’s identity, and submit their name as the final flag.
+     description: "A crime has been committed, and the truth is hidden in plain sight. Participants will receive a detailed case file containing clues, evidence, identities, and digital traces. Their mission is to investigate the case using Open-Source Intelligence (OSINT) techniques—connecting the dots across publicly available information, uncovering hidden leads, and identifying the person responsible for the crime. Every clue brings you closer to the truth, but not every trail leads where it seems. Your objective: Investigate the case, uncover the criminal’s identity, and submit their name as the final flag.",
       teamSize: "2 - 4",
     duration: "60 Minutes",
     venue: "Innovation Hall",
