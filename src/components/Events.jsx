@@ -9,21 +9,36 @@ export default function Events() {
   const EventCard = ({ event, index }) => {
     return (
       <motion.div
-        initial={{ opacity: 0, y: 35 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
+        initial={{
+          opacity: 0,
+          y: 20,
+        }}
+        whileInView={{
+          opacity: 1,
+          y: 0,
+        }}
+        viewport={{
+          once: true,
+          amount: 0.15,
+        }}
         transition={{
-          duration: 0.5,
-          delay: index * 0.08,
+          duration: 0.25,
+          delay: index * 0.04,
+          ease: "easeOut",
         }}
         whileHover={{
-          y: -8,
-          scale: 1.02,
+          y: -6,
+          scale: 1.015,
+          transition: {
+            duration: 0.15,
+            ease: "easeOut",
+          },
         }}
         style={{
           width: "100%",
           minWidth: 0,
           minHeight: "330px",
+
           padding: "28px",
           boxSizing: "border-box",
 
@@ -31,18 +46,43 @@ export default function Events() {
           flexDirection: "column",
 
           textAlign: "center",
+
           position: "relative",
 
-          border: "1px solid rgba(190, 147, 66, 0.35)",
-
+          /* Ancient metal / dragon theme */
           background:
-            "linear-gradient(145deg, rgba(150,110,40,0.08), rgba(20,10,7,0.45))",
+            "linear-gradient(145deg, rgba(38,31,20,0.92), rgba(13,10,7,0.98))",
+
+          border:
+            "1px solid rgba(174,132,58,0.38)",
+
+          boxShadow:
+            "inset 0 0 25px rgba(166,120,42,0.035)",
 
           color: "#d8c28d",
 
-          transition: "0.35s ease",
+          overflow: "hidden",
+
+          transition:
+            "border-color 0.15s ease, box-shadow 0.15s ease, background 0.15s ease",
         }}
       >
+
+        {/* TOP DECORATIVE LINE */}
+
+        <div
+          style={{
+            position: "absolute",
+            top: 0,
+            left: "12%",
+            right: "12%",
+            height: "1px",
+            background:
+              "linear-gradient(90deg, transparent, rgba(193,154,80,0.6), transparent)",
+          }}
+        />
+
+
         {/* EVENT NUMBER */}
 
         <div
@@ -59,25 +99,39 @@ export default function Events() {
 
         {/* SYMBOL */}
 
-        <div
+        <motion.div
+          whileHover={{
+            rotate: 45,
+            scale: 1.08,
+            transition: {
+              duration: 0.15,
+            },
+          }}
           style={{
             width: "58px",
             height: "58px",
+
             margin: "40px auto 24px",
 
             borderRadius: "50%",
-            border: "1px solid rgba(193,150,70,0.4)",
+
+            border:
+              "1px solid rgba(193,150,70,0.45)",
 
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
 
-            fontSize: "18px",
+            fontSize: "16px",
+
             color: "#c19a50",
+
+            boxShadow:
+              "0 0 15px rgba(180,130,50,0.06)",
           }}
         >
           ◆
-        </div>
+        </motion.div>
 
 
         {/* EVENT NAME */}
@@ -87,10 +141,13 @@ export default function Events() {
             margin: "0 0 12px",
 
             fontFamily: "Cinzel, serif",
+
             fontSize: "20px",
+
             fontWeight: "500",
 
             lineHeight: "1.35",
+
             letterSpacing: "1px",
 
             color: "#d8c28d",
@@ -109,6 +166,7 @@ export default function Events() {
             maxWidth: "230px",
 
             fontSize: "11px",
+
             lineHeight: "1.7",
 
             color: "#857b6a",
@@ -126,36 +184,78 @@ export default function Events() {
             marginTop: "auto",
 
             width: "100%",
-            minHeight: "42px",
+
+            minHeight: "44px",
 
             padding: "10px 12px",
+
             boxSizing: "border-box",
 
             display: "flex",
+
             alignItems: "center",
+
             justifyContent: "space-between",
 
             textDecoration: "none",
 
             border:
-              "1px solid rgba(190,147,66,0.35)",
+              "1px solid rgba(193,154,80,0.35)",
 
             background:
-              "rgba(154,111,37,0.05)",
+              "rgba(142,103,36,0.045)",
 
             color: "#c9a762",
 
             fontFamily: "Cinzel, serif",
-            fontSize: "7px",
-            letterSpacing: "1.4px",
+
+            fontSize: "9px",
+
+            letterSpacing: "1.5px",
+
+            transition:
+              "all 0.15s ease",
+          }}
+          onMouseEnter={(e) => {
+            e.currentTarget.style.background =
+              "rgba(174,132,58,0.13)";
+
+            e.currentTarget.style.borderColor =
+              "rgba(211,172,92,0.7)";
+
+            e.currentTarget.style.color =
+              "#ead7a7";
+
+            e.currentTarget.style.boxShadow =
+              "0 0 15px rgba(174,132,58,0.08)";
+          }}
+          onMouseLeave={(e) => {
+            e.currentTarget.style.background =
+              "rgba(142,103,36,0.045)";
+
+            e.currentTarget.style.borderColor =
+              "rgba(193,154,80,0.35)";
+
+            e.currentTarget.style.color =
+              "#c9a762";
+
+            e.currentTarget.style.boxShadow =
+              "none";
           }}
         >
-          <span>MORE INFORMATION</span>
+          <span>
+            MORE INFORMATION
+          </span>
 
-          <span style={{ fontSize: "14px" }}>
+          <span
+            style={{
+              fontSize: "15px",
+            }}
+          >
             →
           </span>
         </Link>
+
       </motion.div>
     );
   };
@@ -166,24 +266,27 @@ export default function Events() {
       id="events"
       style={{
         width: "100%",
+
         minHeight: "100vh",
 
         padding: "120px 7%",
+
         boxSizing: "border-box",
 
         background: "#070605",
+
         overflow: "hidden",
       }}
     >
 
       {/* ==========================================
-          TITLE
+          HEADER
       ========================================== */}
 
       <motion.div
         initial={{
           opacity: 0,
-          y: 30,
+          y: 20,
         }}
         whileInView={{
           opacity: 1,
@@ -193,10 +296,12 @@ export default function Events() {
           once: true,
         }}
         transition={{
-          duration: 0.7,
+          duration: 0.3,
+          ease: "easeOut",
         }}
         style={{
           textAlign: "center",
+
           marginBottom: "65px",
         }}
       >
@@ -204,10 +309,13 @@ export default function Events() {
         <span
           style={{
             display: "block",
+
             marginBottom: "10px",
 
             fontFamily: "Cinzel, serif",
+
             fontSize: "9px",
+
             letterSpacing: "4px",
 
             color: "#a47a38",
@@ -222,7 +330,9 @@ export default function Events() {
             margin: "0 0 12px",
 
             fontFamily: "Cinzel, serif",
+
             fontSize: "8px",
+
             letterSpacing: "4px",
 
             color: "#756d5d",
@@ -237,7 +347,10 @@ export default function Events() {
             margin: 0,
 
             fontFamily: "Cinzel, serif",
-            fontSize: "clamp(30px, 5vw, 55px)",
+
+            fontSize:
+              "clamp(30px, 5vw, 55px)",
+
             fontWeight: "500",
 
             letterSpacing: "3px",
@@ -252,10 +365,13 @@ export default function Events() {
         <div
           style={{
             display: "flex",
+
             justifyContent: "center",
+
             alignItems: "center",
 
             gap: "10px",
+
             marginTop: "22px",
           }}
         >
@@ -263,7 +379,9 @@ export default function Events() {
           <span
             style={{
               width: "70px",
+
               height: "1px",
+
               background: "#80612f",
             }}
           />
@@ -271,6 +389,7 @@ export default function Events() {
           <b
             style={{
               fontSize: "6px",
+
               color: "#c19a50",
             }}
           >
@@ -280,7 +399,9 @@ export default function Events() {
           <span
             style={{
               width: "70px",
+
               height: "1px",
+
               background: "#80612f",
             }}
           />
@@ -292,12 +413,14 @@ export default function Events() {
 
       {/* ==========================================
           ROW 1
+
           EVENT 1 | EVENT 2 | EVENT 3
       ========================================== */}
 
       <div
         style={{
           width: "100%",
+
           maxWidth: "1000px",
 
           margin: "0 auto 25px",
@@ -324,12 +447,14 @@ export default function Events() {
 
       {/* ==========================================
           ROW 2
-               EVENT 4 | EVENT 5
+
+             EVENT 4 | EVENT 5
       ========================================== */}
 
       <div
         style={{
           width: "66.66%",
+
           maxWidth: "665px",
 
           margin: "0 auto",
