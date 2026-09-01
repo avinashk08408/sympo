@@ -1,353 +1,431 @@
-.coordinators-section {
+.court-section {
   position: relative;
-  padding: 120px 7%;
+  padding: 120px 5% 140px;
   background:
     radial-gradient(
-      circle at 50% 20%,
-      rgba(160, 120, 50, 0.08),
-      transparent 45%
+      circle at 50% 15%,
+      rgba(150, 105, 35, 0.08),
+      transparent 38%
     ),
-    #0d0c0b;
+    #080706;
   overflow: hidden;
 }
 
-/* subtle background lines */
-
-.coordinators-section::before {
-  content: "";
+/* subtle dragon-realm atmosphere */
+.court-section::before {
+  content: "ZYVERSE";
   position: absolute;
-  inset: 25px;
-  border: 1px solid rgba(193, 154, 80, 0.08);
+  top: 42%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: "Cinzel", serif;
+  font-size: clamp(80px, 18vw, 260px);
+  letter-spacing: 20px;
+  color: rgba(201, 161, 78, 0.025);
+  white-space: nowrap;
   pointer-events: none;
 }
 
+/* =========================
+   HEADING
+========================= */
 
-/* HEADING */
-
-.coordinators-heading {
+.court-heading {
+  position: relative;
+  z-index: 1;
   text-align: center;
-  margin-bottom: 80px;
+  max-width: 760px;
+  margin: 0 auto 65px;
 }
 
-.section-kicker {
+.section-number {
   display: block;
-  margin-bottom: 14px;
-
+  margin-bottom: 15px;
   font-family: "Cinzel", serif;
   font-size: 11px;
-  letter-spacing: 4px;
-  color: #9c7a3d;
+  letter-spacing: 5px;
+  color: #9b7840;
 }
 
-.coordinators-heading h2 {
-  margin: 0;
-
+.eyebrow {
+  margin: 0 0 15px;
   font-family: "Cinzel", serif;
-  font-size: clamp(32px, 5vw, 58px);
-  letter-spacing: 3px;
+  font-size: 11px;
+  letter-spacing: 5px;
+  color: #a68a56;
+}
+
+.court-heading h2,
+.sub-heading h2 {
+  margin: 0;
+  font-family: "Cinzel", serif;
   font-weight: 500;
-
-  color: #ded4c0;
+  letter-spacing: 3px;
+  color: #dfca98;
 }
 
-.coordinators-heading h2 span {
-  color: #c19a50;
+.court-heading h2 {
+  font-size: clamp(35px, 6vw, 64px);
+  line-height: 1.1;
 }
 
-.section-ornament {
+.court-heading h2 span {
+  color: #bd913b;
+}
+
+.heading-description {
+  max-width: 580px;
+  margin: 25px auto 0;
+  color: #8d8374;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 17px;
+  line-height: 1.7;
+}
+
+.ornament {
   display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 28px;
+}
+
+.ornament i {
+  display: block;
+  width: 60px;
+  height: 1px;
+  background: #765b2e;
+}
+
+.ornament b {
+  color: #c49a4c;
+  font-size: 9px;
+}
+
+/* =========================
+   PRESIDENT
+========================= */
+
+.president-card {
+  position: relative;
+  z-index: 1;
+  width: min(100%, 430px);
+  margin: 0 auto 35px;
+  padding: 40px 25px;
+  text-align: center;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(40, 31, 19, 0.6),
+      rgba(12, 10, 8, 0.95)
+    );
+
+  border: 1px solid rgba(171, 132, 57, 0.45);
+
+  transition:
+    transform 0.25s ease,
+    border-color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.president-card:hover {
+  transform: translateY(-5px);
+  border-color: #b8944e;
+
+  box-shadow:
+    0 12px 35px rgba(135, 93, 25, 0.13),
+    inset 0 0 25px rgba(150, 105, 30, 0.04);
+}
+
+.card-role,
+.court-card span,
+.team-card span,
+.staff-card span {
+  display: block;
+  font-family: "Cinzel", serif;
+  font-size: 10px;
+  letter-spacing: 4px;
+  color: #9d8251;
+}
+
+.president-card h3 {
+  margin: 20px 0 15px;
+  font-family: "Cinzel", serif;
+  font-size: clamp(28px, 5vw, 40px);
+  line-height: 1.25;
+  font-weight: 500;
+  letter-spacing: 3px;
+  color: #dfcc9d;
+}
+
+.small-ornament {
+  color: #bd913b;
+  font-size: 9px;
+}
+
+/* =========================
+   COUNCIL
+========================= */
+
+.council-grid {
+  position: relative;
+  z-index: 1;
+
+  max-width: 1000px;
+  margin: 0 auto;
+
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+}
+
+.court-card {
+  min-height: 95px;
+  padding: 25px 18px;
+
+  display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 14px;
 
-  margin-top: 25px;
+  text-align: center;
+
+  background: rgba(24, 20, 16, 0.72);
+  border: 1px solid rgba(128, 98, 49, 0.27);
+
+  transition:
+    transform 0.22s ease,
+    border-color 0.22s ease,
+    background 0.22s ease;
 }
 
-.section-ornament i {
-  width: 70px;
+.court-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(184, 143, 64, 0.7);
+  background: rgba(38, 29, 19, 0.8);
+}
+
+.court-card strong {
+  margin-top: 12px;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 19px;
+  font-weight: 500;
+  color: #d8c69d;
+}
+
+/* =========================
+   SUB HEADING
+========================= */
+
+.sub-heading {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  margin: 105px auto 40px;
+}
+
+.sub-heading h2 {
+  font-size: clamp(28px, 5vw, 44px);
+}
+
+.sub-line {
+  width: 55px;
   height: 1px;
+  margin: 18px auto 0;
+  background: #8c6c36;
+}
+
+/* =========================
+   ZYVERSE TEAM
+========================= */
+
+.team-grid {
+  position: relative;
+  z-index: 1;
+
+  max-width: 1100px;
+  margin: auto;
+
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.team-card {
+  position: relative;
+  min-height: 130px;
+  padding: 23px;
+
+  background: rgba(22, 18, 14, 0.8);
+
+  border: 1px solid rgba(124, 95, 47, 0.3);
+
+  transition:
+    transform 0.22s ease,
+    border-color 0.22s ease,
+    box-shadow 0.22s ease;
+}
+
+.team-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
   background: linear-gradient(
     90deg,
     transparent,
-    #9c7a3d
-  );
-}
-
-.section-ornament i:last-child {
-  background: linear-gradient(
-    90deg,
-    #9c7a3d,
+    #a37c38,
     transparent
   );
 }
 
-.section-ornament b {
-  color: #c19a50;
-  font-size: 10px;
+.team-card:hover {
+  transform: translateY(-5px);
+
+  border-color: rgba(184, 143, 64, 0.65);
+
+  box-shadow:
+    0 10px 25px rgba(119, 80, 23, 0.12);
 }
 
-
-/* SUB HEADING */
-
-.sub-heading {
+.team-card-top {
   display: flex;
-  align-items: center;
-  gap: 16px;
-
-  margin-bottom: 28px;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 10px;
 }
 
-.sub-heading span {
-  font-family: "Cinzel", serif;
-  font-size: 11px;
-  color: #80632f;
-  letter-spacing: 2px;
-}
-
-.sub-heading h3 {
-  margin: 0;
+.team-card-top small {
+  padding: 4px 7px;
+  border: 1px solid #6d5732;
 
   font-family: "Cinzel", serif;
-  font-size: 20px;
-  letter-spacing: 3px;
-  font-weight: 500;
-
-  color: #d8c7a5;
+  font-size: 7px;
+  letter-spacing: 1px;
+  color: #a99061;
+  white-space: nowrap;
 }
 
-.sub-heading::after {
-  content: "";
-  height: 1px;
-  flex: 1;
-
-  background: linear-gradient(
-    90deg,
-    rgba(193, 154, 80, 0.35),
-    transparent
-  );
+.team-names {
+  margin-top: 15px;
 }
 
+.team-names p {
+  margin: 5px 0;
 
-/* STAFF */
+  font-family: "Cormorant Garamond", serif;
+  font-size: 17px;
 
-.staff-area {
-  max-width: 1100px;
-  margin: 0 auto 85px;
+  color: #d1c3a2;
+}
+
+/* =========================
+   STAFF
+========================= */
+
+.staff-heading {
+  margin-top: 110px;
 }
 
 .staff-grid {
+  position: relative;
+  z-index: 1;
+
+  max-width: 1000px;
+  margin: auto;
+
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 22px;
+  gap: 18px;
 }
 
 .staff-card {
   position: relative;
 
-  min-height: 120px;
-  padding: 25px 30px;
+  padding: 32px 25px;
 
-  display: flex;
-  align-items: center;
-  gap: 22px;
-
-  border: 1px solid rgba(193, 154, 80, 0.3);
+  text-align: center;
 
   background:
     linear-gradient(
-      135deg,
-      rgba(193, 154, 80, 0.07),
-      rgba(255, 255, 255, 0.015)
+      145deg,
+      rgba(35, 28, 19, 0.7),
+      rgba(15, 12, 10, 0.9)
     );
 
+  border: 1px solid rgba(148, 112, 53, 0.4);
+
   transition:
-    transform 0.2s ease,
-    border-color 0.2s ease,
-    box-shadow 0.2s ease;
+    transform 0.22s ease,
+    border-color 0.22s ease;
 }
 
 .staff-card:hover {
   transform: translateY(-5px);
-
-  border-color: rgba(193, 154, 80, 0.7);
-
-  box-shadow:
-    0 10px 30px rgba(0, 0, 0, 0.3),
-    0 0 20px rgba(193, 154, 80, 0.08);
+  border-color: #b58c45;
 }
 
-.card-symbol {
-  font-size: 28px;
-  color: #b08a43;
-}
-
-.staff-card span,
-.coordinator-content span {
-  display: block;
-
-  margin-bottom: 7px;
+.staff-card h3 {
+  margin: 16px 0 0;
 
   font-family: "Cinzel", serif;
-  font-size: 9px;
+  font-size: clamp(18px, 3vw, 25px);
+  font-weight: 500;
   letter-spacing: 2px;
 
-  color: #92733a;
+  color: #d9c594;
 }
 
-.staff-card h4,
-.coordinator-card h4 {
-  margin: 0;
+/* =========================
+   MOBILE
+========================= */
 
-  font-family: "Cinzel", serif;
-  font-size: 17px;
-  font-weight: 500;
+@media (max-width: 700px) {
+  .court-section {
+    padding: 90px 18px 110px;
+  }
 
-  color: #e2d8c5;
-}
-
-
-/* OFFICE BEARERS */
-
-.office-area {
-  max-width: 1100px;
-  margin: 0 auto;
-}
-
-.coordinator-grid {
-  display: grid;
-
-  grid-template-columns:
-    repeat(3, 1fr);
-
-  gap: 16px;
-}
-
-.coordinator-card {
-  position: relative;
-
-  min-height: 125px;
-  padding: 22px;
-
-  display: flex;
-  align-items: center;
-
-  border: 1px solid rgba(193, 154, 80, 0.22);
-
-  background:
-    linear-gradient(
-      145deg,
-      rgba(193, 154, 80, 0.055),
-      rgba(255, 255, 255, 0.012)
-    );
-
-  transition:
-    transform 0.2s ease,
-    border-color 0.2s ease,
-    background 0.2s ease;
-}
-
-.coordinator-card:hover {
-  transform: translateY(-5px);
-
-  border-color: rgba(193, 154, 80, 0.65);
-
-  background:
-    linear-gradient(
-      145deg,
-      rgba(193, 154, 80, 0.1),
-      rgba(255, 255, 255, 0.02)
-    );
-}
-
-.coordinator-number {
-  position: absolute;
-
-  top: 12px;
-  left: 14px;
-
-  font-family: "Cinzel", serif;
-  font-size: 9px;
-  letter-spacing: 1px;
-
-  color: rgba(193, 154, 80, 0.35);
-}
-
-.coordinator-content {
-  padding-left: 18px;
-}
-
-.coordinator-content h4 {
-  font-size: 16px;
-}
-
-.card-arrow {
-  position: absolute;
-
-  right: 16px;
-  bottom: 13px;
-
-  font-size: 7px;
-  color: rgba(193, 154, 80, 0.5);
-}
-
-
-/* TABLET */
-
-@media (max-width: 850px) {
-
-  .coordinator-grid {
+  .council-grid {
     grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
   }
 
-}
-
-
-/* MOBILE */
-
-@media (max-width: 600px) {
-
-  .coordinators-section {
-    padding: 90px 6%;
+  .team-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
   }
 
-  .coordinators-section::before {
-    inset: 12px;
+  .team-card {
+    padding: 18px 14px;
   }
 
-  .coordinators-heading {
-    margin-bottom: 60px;
-  }
-
-  .section-kicker {
-    font-size: 9px;
-    letter-spacing: 3px;
-  }
-
-  .coordinators-heading h2 {
-    font-size: 30px;
+  .team-card span {
+    font-size: 8px;
     letter-spacing: 2px;
+  }
+
+  .team-names p {
+    font-size: 15px;
   }
 
   .staff-grid {
     grid-template-columns: 1fr;
   }
+}
 
-  .coordinator-grid {
+@media (max-width: 430px) {
+  .council-grid {
     grid-template-columns: 1fr;
   }
 
-  .staff-card {
-    min-height: 100px;
-    padding: 20px;
+  .team-grid {
+    grid-template-columns: 1fr;
   }
 
-  .staff-card h4,
-  .coordinator-card h4 {
-    font-size: 14px;
+  .president-card {
+    padding: 32px 18px;
   }
-
-  .sub-heading h3 {
-    font-size: 16px;
-  }
-
 }
