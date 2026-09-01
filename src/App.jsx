@@ -32,16 +32,24 @@ function App() {
     <HashRouter>
       <Routes>
 
-        {/* HOME PAGE */}
+        {/* HOME */}
         <Route
           path="/"
           element={<Home />}
         />
 
-        {/* EVENT DETAIL PAGE */}
+        {/* EVENT DETAILS */}
         <Route
           path="/events/:eventId"
           element={<EventPage />}
+        />
+
+        {/* IMPORTANT:
+            Allows existing #about, #events,
+            #contact etc. navigation to keep working */}
+        <Route
+          path="*"
+          element={<Home />}
         />
 
       </Routes>
