@@ -3,9 +3,6 @@ import { Link } from "react-router-dom";
 import { events } from "../data/events";
 
 export default function Events() {
-  const firstRow = events.slice(0, 3);
-  const secondRow = events.slice(3, 5);
-
   const EventCard = ({ event, index }) => {
     return (
       <motion.div
@@ -30,8 +27,7 @@ export default function Events() {
           y: -6,
           scale: 1.015,
           transition: {
-            duration: 0.15,
-            ease: "easeOut",
+            duration: 0.12,
           },
         }}
         style={{
@@ -40,6 +36,7 @@ export default function Events() {
           minHeight: "330px",
 
           padding: "28px",
+
           boxSizing: "border-box",
 
           display: "flex",
@@ -63,10 +60,10 @@ export default function Events() {
           overflow: "hidden",
 
           transition:
-            "border-color 0.15s ease, box-shadow 0.15s ease, background 0.15s ease",
+            "border-color 0.12s ease, box-shadow 0.12s ease",
         }}
       >
-        {/* TOP DECORATIVE LINE */}
+        {/* TOP LINE */}
         <div
           style={{
             position: "absolute",
@@ -74,6 +71,7 @@ export default function Events() {
             left: "12%",
             right: "12%",
             height: "1px",
+
             background:
               "linear-gradient(90deg, transparent, rgba(193,154,80,0.6), transparent)",
           }}
@@ -96,9 +94,9 @@ export default function Events() {
           whileHover={{
             rotate: 45,
             scale: 1.08,
-            transition: {
-              duration: 0.15,
-            },
+          }}
+          transition={{
+            duration: 0.12,
           }}
           style={{
             width: "58px",
@@ -147,7 +145,7 @@ export default function Events() {
           {event.name}
         </h3>
 
-        {/* DESCRIPTION */}
+        {/* TAGLINE */}
         <p
           style={{
             margin: "0 auto",
@@ -172,9 +170,9 @@ export default function Events() {
 
             width: "100%",
 
-            minHeight: "44px",
+            minHeight: "50px",
 
-            padding: "10px 12px",
+            padding: "10px 14px",
 
             boxSizing: "border-box",
 
@@ -192,16 +190,16 @@ export default function Events() {
             background:
               "rgba(142,103,36,0.045)",
 
-            color: "#c9a762",
+            color: "#d4b873",
 
             fontFamily: "Cinzel, serif",
 
-            fontSize: "11px",
+            fontSize: "13px",
 
-            letterSpacing: "1.5px",
+            letterSpacing: "1.7px",
 
             transition:
-              "all 0.15s ease",
+              "all 0.12s ease",
           }}
           onMouseEnter={(e) => {
             e.currentTarget.style.background =
@@ -224,7 +222,7 @@ export default function Events() {
               "rgba(193,154,80,0.35)";
 
             e.currentTarget.style.color =
-              "#c9a762";
+              "#d4b873";
 
             e.currentTarget.style.boxShadow =
               "none";
@@ -236,7 +234,7 @@ export default function Events() {
 
           <span
             style={{
-              fontSize: "15px",
+              fontSize: "17px",
             }}
           >
             →
@@ -252,11 +250,9 @@ export default function Events() {
       style={{
         width: "100%",
 
-        /* FIXED: no forced full-screen height */
         minHeight: "auto",
 
-        /* Reduced top and bottom spacing */
-        padding: "90px 7% 70px",
+        padding: "100px 7% 80px",
 
         boxSizing: "border-box",
 
@@ -265,10 +261,7 @@ export default function Events() {
         overflow: "hidden",
       }}
     >
-      {/* ==========================================
-          HEADER
-      ========================================== */}
-
+      {/* HEADER */}
       <motion.div
         initial={{
           opacity: 0,
@@ -280,13 +273,14 @@ export default function Events() {
         }}
         viewport={{
           once: true,
+          amount: 0.2,
         }}
         transition={{
-          duration: 0.3,
-          ease: "easeOut",
+          duration: 0.25,
         }}
         style={{
           textAlign: "center",
+
           marginBottom: "55px",
         }}
       >
@@ -388,18 +382,14 @@ export default function Events() {
         </div>
       </motion.div>
 
-      {/* ==========================================
-          ROW 1
-          EVENT 1 | EVENT 2 | EVENT 3
-      ========================================== */}
-
+      {/* EVENT GRID */}
       <div
         style={{
           width: "100%",
 
           maxWidth: "1000px",
 
-          margin: "0 auto 25px",
+          margin: "0 auto",
 
           display: "grid",
 
@@ -409,7 +399,7 @@ export default function Events() {
           gap: "18px",
         }}
       >
-        {firstRow.map((event, index) => (
+        {events.map((event, index) => (
           <EventCard
             key={event.id}
             event={event}
@@ -418,35 +408,23 @@ export default function Events() {
         ))}
       </div>
 
-      {/* ==========================================
-          ROW 2
-          EVENT 4 | EVENT 5
-      ========================================== */}
+      {/* MOBILE */}
+      <style>
+        {`
+          @media (max-width: 800px) {
+            #events > div:last-child {
+              grid-template-columns: 1fr 1fr !important;
+            }
+          }
 
-      <div
-        style={{
-          width: "66.66%",
-
-          maxWidth: "665px",
-
-          margin: "0 auto",
-
-          display: "grid",
-
-          gridTemplateColumns:
-            "repeat(2, minmax(0, 1fr))",
-
-          gap: "18px",
-        }}
-      >
-        {secondRow.map((event, index) => (
-          <EventCard
-            key={event.id}
-            event={event}
-            index={index + 3}
-          />
-        ))}
-      </div>
+          @media (max-width: 560px) {
+            #events > div:last-child {
+              grid-template-columns: 1fr !important;
+              max-width: 390px !important;
+            }
+          }
+        `}
+      </style>
     </section>
   );
 }
